@@ -1,0 +1,104 @@
+{
+  "meta": { "brand": "facial-scale", "lang": "pt-BR", "version": "1.0.0", "dominio": "aceleração comercial e vendas (CEO/ROI)" },
+  "sections": {
+    "hero": {
+      "h1": "Pare de construir no escuro.",
+      "body": "O Design System da **Facial Scale**: tokens, tipografia Silka, componentes e acessibilidade prontos para você montar telas com consistência e parar de improvisar a cada tela nova. A decisão fica no token, não no achismo."
+    },
+    "marca": { "note": "A marca da Facial Scale no digital: logotipo, assinatura e uso correto sobre fundo claro e escuro. Mantém leitura e contraste nos dois temas." },
+    "cores": { "note": "Paleta institucional e seus derivados em tokens de tema, claro e escuro. O componente consome token, nunca cor fixa." },
+    "gradientes": { "note": "Gradientes da marca em malhas e lineares (roxo profundo a rosé). Sem cônico, sem blob, sem halo." },
+    "tipografia": { "note": "Silka em escala responsiva por ponto de quebra. Corpo com no mínimo 16px no mobile para evitar o zoom no iOS." },
+    "icones": { "note": "Biblioteca Phosphor, peso Thin, traço de 1pt, herdando a cor por currentColor. O ícone nunca substitui o rótulo." },
+    "botoes": { "note": "Variantes e tamanhos com altura mínima de 44px e raio pill. O rótulo sempre diz a ação (Registrar caixa, não Enviar)." },
+    "feedback": { "note": "Alertas, notificações e status nos quatro tons. Sempre ícone e texto juntos: a cor não comunica sozinha." },
+    "avancados": { "note": "Componentes de aplicação: tabela de dados, paleta de comandos, seletor de data e navegação. Conteúdo de exemplo do domínio comercial da Facial Scale (Painel, ROI, Tarefas Críticas)." },
+    "acessibilidade": { "note": "Contraste WCAG AA, foco visível, alvo de toque de 44px e respeito a movimento reduzido. A mensagem de erro diz o que houve e como resolver." },
+    "fundamentos": { "note": "Cores, tipografia, espaçamento e raio: a base que todo componente consome via token." },
+    "principios": { "note": "Consistência por token, paridade entre claro e escuro, acessibilidade por padrão. Decida uma vez, reaplique em todo lugar." },
+    "tokens": { "note": "Valores legíveis por máquina para tema, espaçamento, raio, elevação e movimento. O componente lê o token, não o valor solto." }
+  },
+  "microcopy": {
+    "buttons": {
+      "salvar": "Registrar caixa",
+      "cancelar": "Cancelar",
+      "confirmar": "Confirmar",
+      "adicionar": "Nova tarefa crítica",
+      "remover": "Remover",
+      "editar": "Editar tarefa",
+      "acelerar": "Acelerar com a Facial Scale"
+    },
+    "empty_states": [
+      { "context": "lista de tarefas vazia", "title": "Nenhuma tarefa ainda", "body": "Crie a primeira Tarefa Crítica da semana e comece a gerar caixa novo.", "action": "Criar tarefa" },
+      { "context": "busca sem resultado", "title": "Sem resultados", "body": "Nenhuma tarefa corresponde a esse termo. Ajuste a busca ou limpe os filtros.", "action": "Limpar filtros" },
+      { "context": "painel novo sem dados", "title": "ROI ainda sem dados", "body": "Registre o primeiro caixa novo e o Painel ROI começa a contar.", "action": "Registrar caixa" }
+    ],
+    "alerts": {
+      "success": { "title": "Caixa novo registrado", "body": "Seu Painel ROI já atualizou." },
+      "info": { "title": "Encontro nesta quarta", "body": "Pauta: precificação e conversão, das 9h às 11h." },
+      "warning": { "title": "Tarefa crítica vence hoje", "body": "Conclua para manter o ritmo de caixa novo." },
+      "error": { "title": "Falha ao salvar", "body": "Não foi possível salvar agora. Verifique a conexão e tente de novo." }
+    },
+    "form_validation": {
+      "required": "Campo obrigatório. Preencha para continuar.",
+      "email": "E-mail inválido. Use o formato nome@dominio.com.",
+      "senha_fraca": "Senha fraca. Use ao menos 8 caracteres, com número e letra.",
+      "enviado": "Dados enviados. Você recebe o acesso por e-mail.",
+      "erro_envio": "Não foi possível enviar. Verifique a conexão e tente de novo."
+    },
+    "confirm_destructive": {
+      "title": "Remover tarefa?",
+      "body": "Essa ação não tem volta. A tarefa sai do seu painel e não dá para recuperar.",
+      "confirm": "Remover",
+      "cancel": "Voltar"
+    },
+    "tooltips": [
+      "Duplica a tarefa para você ajustar sem perder o original.",
+      "Filtra as tarefas por semana, status e caixa gerado.",
+      "Exporta o painel em PDF para revisar com o time."
+    ]
+  },
+  "components": {
+    "data_table": {
+      "columns": ["Tarefa", "Semana", "Caixa gerado", "Estado"],
+      "rows": [
+        ["Reativação de inativos", "Semana 1", "R$ 8.400", "Concluída"],
+        ["Reabertura de orçamentos", "Semana 2", "R$ 6.200", "Em curso"],
+        ["Upsell na consulta", "Semana 2", "R$ 3.900", "Em curso"],
+        ["Indicação premiada", "Semana 3", "R$ 2.700", "Planejada"],
+        ["Retorno trimestral", "Semana 4", "R$ 4.100", "Concluída"]
+      ],
+      "empty": "Nenhuma tarefa por aqui ainda. Crie a primeira Tarefa Crítica da semana.",
+      "caption": "Tarefas Críticas do mês"
+    },
+    "date_picker": {
+      "label": "Data do próximo encontro",
+      "help": "Os encontros são quartas, das 9h às 11h."
+    },
+    "app_nav": {
+      "page_title": "Painel ROI",
+      "user_initials": "MA",
+      "items": ["Início", "Painel ROI", "Tarefas", "Diagnóstico", "Documentos", "Conta"]
+    },
+    "command_palette": {
+      "placeholder": "Busque tarefas, documentos ou comandos",
+      "groups": [
+        { "label": "Ações", "items": ["Registrar caixa novo", "Nova tarefa crítica", "Gerar documento"] },
+        { "label": "Navegação", "items": ["Ir para Painel ROI", "Ir para Diagnóstico", "Abrir minha conta"] },
+        { "label": "Recentes", "items": ["Reativação de inativos", "Reabertura de orçamentos"] }
+      ]
+    },
+    "tabs": ["Visão geral", "Tarefas", "Documentos", "ROI"],
+    "accordion": [
+      { "q": "Em quanto tempo o investimento se paga?", "a": "A meta é recuperar o investimento nas 4 primeiras semanas, com as Tarefas Críticas que geram caixa novo." },
+      { "q": "Preciso parar de atender para participar?", "a": "Não. Os encontros são semanais (quartas, das 9h às 11h) e a execução roda em paralelo à sua agenda." }
+    ],
+    "breadcrumb": ["Início", "Painel", "Tarefas Críticas"],
+    "cards": [
+      { "title": "Diagnóstico Estratégico", "desc": "O ponto de partida: onde a clínica trava no comercial e o que destrava primeiro." },
+      { "title": "Painel ROI", "desc": "Quanto investiu, quanto já gerou em caixa novo e em qual semana se pagou." },
+      { "title": "Tarefas Críticas", "desc": "Reativação, reabertura de orçamentos, upsell e indicação: caixa novo nas primeiras semanas." },
+      { "title": "Arquitetura comercial", "desc": "Precificação, conversão, recorrência e gestão: o negócio que roda sem você." }
+    ]
+  }
+}
