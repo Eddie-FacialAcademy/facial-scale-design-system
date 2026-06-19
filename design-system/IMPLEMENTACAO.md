@@ -1,5 +1,7 @@
 # Implementação — Facial Scale Design System
 
+> **Versão atual: 1.0.0** (alinhada aos arquivos canônicos `facial-scale-design-tokens.json` / `.css`; histórico em `CHANGELOG.md`).
+
 Documentação técnica de **como cada item é implementado**, para subir em qualquer infra (HTML/CSS puro, qualquer stack via tokens, ou Framer). Tudo aqui reflete o que está no showcase publicado (`index.html`) e no pacote `design-system/`. Em caso de divergência, **o showcase + `facial-scale-design-tokens.json` são a fonte da verdade**; o `facial-scale-design-system.css` (drop-in) espelha esses tokens.
 
 - **Sem build step.** O showcase é um único `index.html` self-contained (CSS em `<style>`, SVGs em `<defs><symbol>`, JS em `<script>`, fonte Silka embutida em base64). Abre direto no navegador, sem bundler, sem dependências de rede.
@@ -64,39 +66,44 @@ O toggle (`#themeToggle`, `.theme-toggle`, com `aria-pressed`) alterna `data-the
 
 | Cor | Hex | Papel |
 |---|---|---|
-| Roxo profundo | `#3E1968` | Pontual. Cor do logo, semântico --info e início do gradiente-assinatura. |
-| Roxo claro | `#644389` | Pontual. Variação institucional do roxo (paleta/gradiente-assinatura). |
-| Roxo claro · variação | `#8A5EBA` | Pontual. Variação clara do roxo na paleta institucional. |
-| Rosé | `#CDA29B` | Accent principal (CTA, links, foco, selos). |
-| Nude | `#E8D5CE` | Acento/superfície predominante (tints, superfícies, hover). |
+| Roxo profundo | `#3E1968` | **Estrutura.** Base dos fundos escuros e **CTA do tema claro** (texto branco); também cor do logo, semântico --info e paleta institucional. |
+| Roxo claro | `#644389` | Variação institucional do roxo (paleta/gradiente-assinatura) e hover sólido do CTA roxo. |
+| Roxo claro · variação | `#8A5EBA` | Variação clara do roxo na paleta institucional. |
+| Rosé | `#CDA29B` | Accent **quente** (links no escuro, foco, selos). |
+| Nude | `#E8D5CE` | Accent **quente** (tints, hover) — junto com o rosé; **não** é superfície predominante (as superfícies são roxo escuro). |
 | Pêssego | `#DDB9AE` | Família quente. Espectro do gradiente principal e detalhes. |
 | Grafite | `#2B2730` | Texto no tema claro. |
 | Branco quente | `#FBF6F4` | Fundo claro (off-white). |
 
 Os `--brand-*` **não** mudam entre temas; os tokens de tema abaixo é que derivam deles.
 
-> No CSS, os primitivos são expostos como `--brand-*` (nomes herdados dos DS irmãos por paridade de arquitetura); o accent interativo deriva do rosé/nude (`--lilas`/`--lilas-soft` carregam rosé/nude); o roxo entra só de forma pontual (logo, --info, gradiente-assinatura).
+> No CSS, os primitivos são expostos como `--brand-*` (nomes herdados dos DS irmãos por paridade de arquitetura). A lógica de papéis é: **roxo = estrutura** (fundos escuros) **+ CTA do tema claro**; **champanhe `#E1C9AC` = CTA do tema escuro**; **rosé/nude = accents quentes**. O accent interativo `--lilas` carrega rosé no escuro (`#D6A99F`) e roxo no claro (`#3E1968`, link roxo); `--lilas-soft` carrega nude no escuro (`#E8D5CE`) e roxo suave no claro (`#5B3A86`). O CTA preenchido/sólido usa os tokens `--cta-grad`/`--cta-solid`/`--cta-ink`.
+>
+> O champanhe `#E1C9AC` (derivado) entra na paleta institucional só como **CTA no tema escuro**.
 
 ### 2.3 Tokens de tema (valores do showcase)
 
 | Token | Dark | Light | Uso |
 |---|---|---|---|
-| `--bg` | `#14100E` | `#FBF6F4` | fundo da página |
-| `--bg2` | `#1D1714` | `#F6ECE8` | fundo alt / app shell |
-| `--card` | `#251C18` | `#FDF8F6` | superfície de cartão/controle |
-| `--card2` | `#30241E` | `#F4E5DF` | superfície elevada/hover |
-| `--line` | `rgba(205,162,155,.16)` | `rgba(138,90,80,.16)` | bordas/divisores |
+| `--bg` | `#0C0A12` | `#FBF6F4` | fundo da página (dark = quase-preto **roxo**) |
+| `--bg2` | `#161120` | `#F6ECE8` | fundo alt / app shell |
+| `--card` | `#1E1828` | `#FDF8F6` | superfície de cartão/controle |
+| `--card2` | `#282132` | `#F4E5DF` | superfície elevada/hover |
+| `--line` | `rgba(205,162,155,.16)` | `rgba(62,25,104,.16)` | bordas/divisores (light = matiz roxo) |
 | `--txt` | `#FBF6F4` | `#2B2730` | texto principal |
 | `--mut` | `#C8B6AF` | `#6F5C55` | texto secundário |
 | `--legal-mut` | `#A28C84` | `#6F5C55` | texto legal/rodapé |
-| `--roxo` | `#5C342D` | `#5C342D` | tom quente profundo (gradiente) |
-| `--roxo2` | `#8A554B` | `#8A554B` | fill/seleção (família quente) |
-| `--roxo-bright` | `#743F36` | `#743F36` | hover sólido |
-| `--lilas` | `#D6A99F` | `#8A554B` | **accent interativo** (links, ativo, foco) |
-| `--lilas-soft` | `#E8D5CE` | `#6E4640` | accent hover |
+| `--roxo` | `#2A1149` | `#2A1149` | roxo profundo · estrutura (fundos/gradiente) |
+| `--roxo2` | `#3E1968` | `#3E1968` | roxo · fill/seleção, base do CTA |
+| `--roxo-bright` | `#644389` | `#644389` | roxo · hover sólido |
+| `--lilas` | `#D6A99F` | `#3E1968` | **accent interativo** — rosé no escuro, **link roxo** no claro |
+| `--lilas-soft` | `#E8D5CE` | `#5B3A86` | accent hover — nude no escuro, roxo suave no claro |
+| `--cta` / `--cta-ink` | `#E1C9AC` / `#2A1149` | `#3E1968` / `#fff` | **CTA**: champanhe (texto roxo) no escuro, roxo (texto branco) no claro |
+| `--cta-grad` | `linear-gradient(120deg,#ECDDC6,#DABF9D)` | `linear-gradient(120deg,#3E1968,#2A1149)` | gradiente do CTA preenchido |
+| `--cta-solid` | `#E1C9AC` | `#3E1968` | CTA sólido (`--cta-solid-h` = hover) |
 | `--logo` | `#FFFFFF` | `#3E1968` | cor do logotipo (lockup SVG) |
-| `--gold` / `--gold-ink` | `#CDA29B` / `#CDA29B` | `#CDA29B` / `#8E5A50` | rosé fill / texto |
-| `--rose` / `--rose-ink` | `#E8D5CE` / `#E8D5CE` | `#E8D5CE` / `#8A6258` | nude fill / texto |
+| `--gold` / `--gold-ink` | `#CDA29B` / `#CDA29B` | `#CDA29B` / `#8E5A50` | rosé fill / tinta rosé (sobre fundo claro) |
+| `--rose` / `--rose-ink` | `#E8D5CE` / `#E8D5CE` | `#E8D5CE` / `#8A6258` | nude fill / tinta nude (sobre fundo claro) |
 
 **Semânticas** (texto sempre com ícone/label junto, nunca cor sozinha):
 
@@ -127,13 +134,13 @@ Os `--brand-*` **não** mudam entre temas; os tokens de tema abaixo é que deriv
 /* Componentes */     --row-h:46px  --row-h-compact:38px  --side-w:248px  --cal-cell:38px  --row-sel:(accent .16 dark / .10 light)
 ```
 
-**Elevação (sombra em camadas; dark preto, light com matiz da marca):**
+**Elevação (sombra em camadas; dark preto neutro, light com matiz roxo da marca):**
 ```
---elev-1: 0 1px 2px …, 0 2px 6px …            (dark: preto; light: rgba(138,90,80,…))
+--elev-1: 0 1px 2px …, 0 2px 6px …            (dark: preto neutro; light: rgba(62,25,104,…))
 --elev-2 / --elev-3 / --elev-4                 (cada nível mais difuso)
 --elev-3 dark: 0 4px 12px rgba(0,0,0,.45), 0 16px 36px rgba(0,0,0,.55)
 --elev-raised:var(--elev-1)  --elev-overlay:var(--elev-3)  --elev-modal:var(--elev-4)
---sh / --sh-strong: rgba(138,90,80,.40/.50) dark · .18/.26 light  (glow dos botões fill)
+--sh / --sh-strong: rgba(62,25,104,.40/.50) dark · .18/.26 light  (glow roxo dos botões fill)
 ```
 **Regra:** use o papel (`--elev-raised/overlay/modal`), não o número.
 
@@ -214,14 +221,14 @@ Classe base **`.b`** (drop-in: `.fs-btn`). Composição: `.b` + tamanho (`.sm`/`
 
 ### 4.2 Variantes e estados (hover/active)
 ```css
-/* Preenchido (gradiente + glow) */
-.b.fill{background:linear-gradient(120deg,var(--roxo2),var(--roxo));color:#fff;box-shadow:0 10px 30px var(--sh)}
+/* Preenchido = CTA (champanhe no escuro, roxo no claro) + glow */
+.b.fill{background:var(--cta-grad);color:var(--cta-ink);box-shadow:0 10px 30px var(--sh)}
 .b.fill:hover{transform:translateY(-2px);box-shadow:0 16px 38px var(--sh-strong)}   /* sobe + glow cresce */
 .b.fill:active{box-shadow:0 6px 18px var(--sh)}                                      /* glow recua */
 
-/* Sólido */
-.b.solid{background:var(--roxo2);color:#fff}
-.b.solid:hover{background:var(--roxo-bright)}
+/* Sólido = CTA sólido (mesma lógica: champanhe no escuro, roxo no claro) */
+.b.solid{background:var(--cta-solid);color:var(--cta-ink)}
+.b.solid:hover{background:var(--cta-solid-h)}
 
 /* Contorno */
 .b.outline{background:transparent;color:var(--txt);border:1px solid var(--line)}
@@ -246,6 +253,10 @@ Classe base **`.b`** (drop-in: `.fs-btn`). Composição: `.b` + tamanho (`.sm`/`
 @media (max-width:560px){.b{white-space:normal;text-align:center}}
 ```
 **Resumo da microinteração do botão:** `transition:.2s var(--ease)` (transform + box-shadow + cor); `fill` levanta 2px no hover e o glow (`--sh`→`--sh-strong`) intensifica; `:active` faz `scale(.985)` em `.15s`. O **glow vive só no botão** (cartões não usam glow). Alvo de toque mínimo 44px (`min-height`).
+
+O fill/sólido **primário** é o CTA: **champanhe `#E1C9AC`** com texto roxo escuro `#2A1149` no tema **escuro**, e **roxo `#3E1968`** com texto branco no tema **claro** (via `--cta-ink`). O champanhe dá o contraste/destaque do CTA sobre o fundo escuro roxo.
+
+**Acessibilidade do botão (2 níveis):** (1) texto do botão vs fundo do botão ≥ 4.5:1; (2) componente/borda do botão vs fundo da página ≥ 3:1 (WCAG 1.4.11 Non-text Contrast). Ambos atendidos: champanhe `#E1C9AC` sobre `#0C0A12` no escuro e roxo `#3E1968` sobre `#FBF6F4` no claro.
 
 ### 4.4 Framer (`Button.tsx`)
 Code Component com Property Controls:
@@ -305,14 +316,14 @@ Alert: ícone (`#ph-check/info/warn/x`) + `<b>Título.</b> corpo`. Spinner: `rol
 
 ### 5.4 Sobreposições
 ```css
-.modal-scrim{position:absolute;inset:0;background:radial-gradient(... rgba(205,162,155,.30) ...),rgba(20,16,14,.55);
-             backdrop-filter:blur(var(--blur-sm))}                       /* scrim com matiz da marca */
+.modal-scrim{position:absolute;inset:0;background:radial-gradient(... rgba(205,162,155,.30) ...),rgba(12,10,18,.55);
+             backdrop-filter:blur(var(--blur-sm))}                       /* base roxa (de #0C0A12) + tint rosé */
 .modal{width:min(380px,100%);background:var(--card);border:1px solid var(--line);
        border-radius:18px;box-shadow:var(--elev-modal);padding:22px}     /* .m-row alinha botões à direita */
 .tip .bub{background:var(--card2);border:1px solid var(--line);border-radius:8px;box-shadow:var(--elev-overlay)}
 .pop{width:240px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--elev-overlay)}
 ```
-Scrim usa `backdrop-filter:blur(6px)` + matiz rosé quente (não cinza, não roxo). Aparição/posicionamento de tip/pop é via interação (hover/JS) com `transition:.2s var(--ease)`.
+Scrim usa `backdrop-filter:blur(6px)` sobre base **roxa** `rgba(12,10,18,.55)` (a estrutura escura é roxa), com um tint rosé como accent por cima (não cinza). Aparição/posicionamento de tip/pop é via interação (hover/JS) com `transition:.2s var(--ease)`.
 
 ### 5.5 Estrutura
 ```css
@@ -358,7 +369,7 @@ Accordion usa `<details>/<summary>` nativo (estado open gratuito + acessível); 
 
 **Date picker (`.cal`)** — calendário `width:296px`, grid `.cal-grid{grid-template-columns:repeat(7,1fr)}`:
 - Dia `.cal-day{height:var(--cal-cell)}`; `:hover{background:var(--card2)}`.
-- Estados: `.is-out{opacity:.5}` · `.is-today{box-shadow:inset 0 0 0 1.5px var(--lilas)}` · `.is-range{background:var(--row-sel)}` · `.is-sel{background:var(--roxo2);color:#fff}` (tom profundo p/ o branco passar contraste).
+- Estados: `.is-out{opacity:.5}` · `.is-today{box-shadow:inset 0 0 0 1.5px var(--lilas)}` · `.is-range{background:var(--row-sel)}` · `.is-sel{background:var(--roxo2);color:#fff}` (roxo `#3E1968` profundo p/ o branco passar contraste).
 
 ---
 
@@ -390,7 +401,10 @@ Tudo vanilla, sem dependências. Scripts no fim do `<body>`.
 
 ## 8. Acessibilidade ⭐
 
-- **Contraste WCAG 2.1 AA** medido nos 2 temas (texto normal ≥4.5:1; grande/UI ≥3:1). Verificado por sweep automatizado (compondo fundos semi-transparentes sobre o pai e desativando transições antes de medir). 0 falhas em dark e light.
+- **Contraste WCAG 2.1 AA em 2 níveis**, medido nos 2 temas:
+  - **(1) Texto** (1.4.3): texto normal ≥ 4.5:1; texto grande ≥ 3:1.
+  - **(2) Não-texto / componentes** (1.4.11 Non-text Contrast): borda/preenchimento de componente vs fundo adjacente ≥ 3:1 — inclui o **CTA** (champanhe `#E1C9AC` no escuro, roxo `#3E1968` no claro), bordas de input, foco e ícones de estado.
+  - Verificado por sweep automatizado (compondo fundos semi-transparentes sobre o pai e desativando transições antes de medir). 0 falhas em dark e light.
 - **Foco visível:** outline 2px `--lilas` + `box-shadow:var(--focus)` (anel 3px); guard para `forced-colors` (`Highlight`).
 - **Cor nunca sozinha:** todo estado/semântica vem com ícone e/ou texto.
 - **Alvos de toque:** `--touch-min:44px` em botões, `.check`, `.toggle`; controles densos (pager 40, dia do calendário 38) compensam com espaçamento.
@@ -458,14 +472,14 @@ Os três DS do ecossistema Facial Academy compartilham arquitetura, JS, componen
 | Prefixo de classe | `fs-*` | `fc-*` | `cc-*` |
 | Chave de tema | `fs-theme` | `fc-theme` | `cc-theme` |
 | id do cmdk | `cmdk-list-fs` | `cmdk-list-fa` | `cmdk-list-co` |
-| Primária (accent/CTA, dark/light) | rosé/nude `#D6A99F` / `#8A554B` | roxo `#644389` | bordô `#D6515C` |
-| Accent (dark/light) | rosé/nude `#D6A99F` / `#8A554B` | lilás `#A289D7` / `#644389` | coral `#E88A92` / `#C2434E` |
+| CTA (dark/light) | champanhe `#E1C9AC` / roxo `#3E1968` | roxo `#644389` | bordô `#D6515C` |
+| Accent quente (dark/light) | rosé `#D6A99F` / roxo `#3E1968` (link) | lilás `#A289D7` / `#644389` | coral `#E88A92` / `#C2434E` |
 | Família predominante | rosé `#CDA29B`, nude `#E8D5CE`, pêssego `#DDB9AE` | dourado `#FFE4A4`, rosa `#FFB1BD` | dourado, rosa |
 | `--info` (dark/light, pontual) | roxo `#A98AD0` / `#5B3A86` | roxo `#A289D7` / `#5E4A8C` | teal `#74C0D8` / `#2A7286` |
-| Sombra (matiz) | `rgba(138,90,80,…)` | `rgba(100,67,137,…)` | `rgba(214,81,92,…)` |
+| Sombra (matiz) | `rgba(62,25,104,…)` | `rgba(100,67,137,…)` | `rgba(214,81,92,…)` |
 | Domínio da copy | comercial/CEO (ROI, Tarefas Críticas) | HOF/técnica (aulas) | corpo/técnica |
 
-**Identidade Facial Scale:** rosé/nude premium com roxo pontual, branco quente e grafite; dark quase-preto quente (a marca não usa branco nem preto puro). Superfícies: dark `--bg #14100E`, `--card #251C18`, `--txt #FBF6F4`; light `--bg #FBF6F4`, `--card #FDF8F6`, `--txt #2B2730`. Semânticas success/warning/danger são **iguais** nas três marcas.
+**Identidade Facial Scale:** **roxo como estrutura** (fundos escuros e CTA do tema claro) com **rosé/nude como accents quentes** e **champanhe como CTA no tema escuro**; branco quente e grafite para texto. Dark = quase-preto **roxo** (a marca não usa branco nem preto puro). Superfícies: dark `--bg #0C0A12`, `--card #1E1828`, `--txt #FBF6F4`; light `--bg #FBF6F4`, `--card #FDF8F6`, `--txt #2B2730`. Semânticas success/warning/danger são **iguais** nas três marcas.
 
 > Trocar de marca = trocar a linha de import e o prefixo de classe. O resto do código é idêntico.
 

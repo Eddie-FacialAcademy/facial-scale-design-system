@@ -7,7 +7,7 @@
     "language": "pt-BR",
     "themes": ["dark", "light"],
     "defaultTheme": "dark",
-    "direction": "Accent/CTA/links = rosé + nude (predominantes); roxo só pontual (logo, info, destaques).",
+    "direction": "Fundos escuros e estrutura = roxo; CTA = roxo no claro e champanhe no escuro (destaque/contraste); accents quentes = rosé + nude. Sem marrom.",
     "note": "Cores derivadas das 7 institucionais. Nada deve sair desta paleta. Aplique tokens, nunca hex solto nos componentes."
   },
 
@@ -19,30 +19,32 @@
       "vermelho": "#E8D5CE", "amarelado": "#DDB9AE", "branco": "#FFFFFF", "preto": "#000000"
     },
     "dark": {
-      "bg": "#14100E", "bg2": "#1D1714", "card": "#251C18", "card2": "#30241E",
+      "bg": "#0C0A12", "bg2": "#161120", "card": "#1E1828", "card2": "#282132",
       "line": "rgba(205,162,155,.16)",
-      "roxo": "#5C342D", "roxo2": "#8A554B", "roxoBright": "#743F36",
+      "roxo": "#2A1149", "roxo2": "#3E1968", "roxoBright": "#644389",
       "lilas": "#D6A99F", "lilasSoft": "#E8D5CE",
+      "cta": "#E1C9AC", "ctaGrad": "linear-gradient(120deg,#ECDDC6,#DABF9D)", "ctaInk": "#2A1149",
       "txt": "#FBF6F4", "mut": "#C8B6AF", "legalMut": "#A28C84",
       "gold": "#CDA29B", "goldDeep": "#B98C84", "goldInk": "#CDA29B", "goldLine": "rgba(205,162,155,.42)",
       "rose": "#E8D5CE", "roseInk": "#E8D5CE", "roseLine": "rgba(232,213,206,.42)",
       "peach": "#DDB9AE", "logo": "#FFFFFF",
       "success": "#45C08A", "warning": "#E8B53D", "danger": "#FF7D93", "info": "#A98AD0",
       "successBg": "rgba(69,192,138,.14)", "warningBg": "rgba(232,181,61,.14)", "dangerBg": "rgba(255,125,147,.14)", "infoBg": "rgba(169,138,208,.14)", "rowSel": "rgba(205,162,155,.16)",
-      "shadow": "rgba(138,90,80,.40)", "shadowStrong": "rgba(138,90,80,.50)"
+      "shadow": "rgba(62,25,104,.40)", "shadowStrong": "rgba(62,25,104,.50)"
     },
     "light": {
       "bg": "#FBF6F4", "bg2": "#F6ECE8", "card": "#FDF8F6", "card2": "#F4E5DF",
-      "line": "rgba(138,90,80,.16)",
-      "roxo": "#5C342D", "roxo2": "#8A554B", "roxoBright": "#743F36",
-      "lilas": "#8A554B", "lilasSoft": "#6E4640",
+      "line": "rgba(62,25,104,.16)",
+      "roxo": "#2A1149", "roxo2": "#3E1968", "roxoBright": "#644389",
+      "lilas": "#3E1968", "lilasSoft": "#5B3A86",
+      "cta": "#3E1968", "ctaGrad": "linear-gradient(120deg,#3E1968,#2A1149)", "ctaInk": "#fff",
       "txt": "#2B2730", "mut": "#6F5C55", "legalMut": "#6F5C55",
       "gold": "#CDA29B", "goldDeep": "#B98C84", "goldInk": "#8E5A50", "goldLine": "rgba(142,90,80,.55)",
       "rose": "#E8D5CE", "roseInk": "#8A6258", "roseLine": "rgba(138,98,88,.50)",
       "peach": "#DDB9AE", "logo": "#3E1968",
       "success": "#147A45", "warning": "#8A5A00", "danger": "#BE2C45", "info": "#5B3A86",
-      "successBg": "rgba(31,138,91,.10)", "warningBg": "rgba(138,90,0,.10)", "dangerBg": "rgba(199,47,73,.10)", "infoBg": "rgba(91,58,134,.10)", "rowSel": "rgba(138,90,80,.10)",
-      "shadow": "rgba(138,90,80,.18)", "shadowStrong": "rgba(138,90,80,.26)"
+      "successBg": "rgba(31,138,91,.10)", "warningBg": "rgba(138,90,0,.10)", "dangerBg": "rgba(199,47,73,.10)", "infoBg": "rgba(91,58,134,.10)", "rowSel": "rgba(62,25,104,.10)",
+      "shadow": "rgba(62,25,104,.18)", "shadowStrong": "rgba(62,25,104,.26)"
     }
   },
 
@@ -53,8 +55,8 @@
       "3": "0 4px 12px rgba(0,0,0,.45), 0 16px 36px rgba(0,0,0,.55)", "4": "0 10px 24px rgba(0,0,0,.5), 0 28px 64px rgba(0,0,0,.62)"
     },
     "light": {
-      "1": "0 1px 2px rgba(138,90,80,.10), 0 2px 6px rgba(138,90,80,.08)", "2": "0 2px 4px rgba(138,90,80,.10), 0 8px 16px rgba(138,90,80,.12)",
-      "3": "0 4px 10px rgba(138,90,80,.12), 0 16px 32px rgba(138,90,80,.16)", "4": "0 8px 18px rgba(138,90,80,.14), 0 28px 56px rgba(138,90,80,.22)"
+      "1": "0 1px 2px rgba(62,25,104,.10), 0 2px 6px rgba(62,25,104,.08)", "2": "0 2px 4px rgba(62,25,104,.10), 0 8px 16px rgba(62,25,104,.12)",
+      "3": "0 4px 10px rgba(62,25,104,.12), 0 16px 32px rgba(62,25,104,.16)", "4": "0 8px 18px rgba(62,25,104,.14), 0 28px 56px rgba(62,25,104,.22)"
     }
   },
 
@@ -106,16 +108,16 @@
   "icons": { "library": "Phosphor", "weight": "Thin", "stroke": "1pt (stroke-width 1 na grade 24)", "color": "currentColor" },
 
   "gradients": {
-    "rule": "Direção rosé/nude; roxo só pontual. NÃO usar conic, blob ou halo. Preferir meshes (radiais multiponto) e lineares.",
+    "rule": "Roxo na estrutura, rosé/nude nos accents, champanhe no CTA escuro. Sem marrom. NÃO usar conic, blob ou halo. Preferir meshes (radiais multiponto) e lineares.",
     "examples": {
-      "primary": "linear-gradient(120deg,#8A554B,#5C342D)",
-      "spectral": "linear-gradient(110deg,#5C342D,#8A554B 28%,#D6A99F 54%,#E8D5CE 80%,#DDB9AE)",
-      "mesh": "radial-gradient(at 18% 22%,rgba(205,162,155,.55) 0,transparent 45%),radial-gradient(at 78% 18%,rgba(232,213,206,.30) 0,transparent 42%),radial-gradient(at 68% 78%,rgba(138,90,80,.70) 0,transparent 50%),radial-gradient(at 30% 92%,rgba(221,185,174,.22) 0,transparent 46%),#14100E"
+      "primary": "linear-gradient(120deg,#3E1968,#2A1149)",
+      "spectral": "linear-gradient(110deg,#2A1149,#3E1968 28%,#D6A99F 54%,#E8D5CE 80%,#DDB9AE)",
+      "mesh": "radial-gradient(at 18% 22%,rgba(205,162,155,.55) 0,transparent 45%),radial-gradient(at 78% 18%,rgba(232,213,206,.30) 0,transparent 42%),radial-gradient(at 68% 78%,rgba(62,25,104,.70) 0,transparent 50%),radial-gradient(at 30% 92%,rgba(221,185,174,.22) 0,transparent 46%),#0C0A12"
     }
   },
 
   "accessibility": {
-    "contrast": "WCAG AA — texto normal ≥4.5:1, texto grande/UI ≥3:1. No light, rosé/nude como TEXTO usam -ink.",
+    "contrast": "WCAG AA em 2 níveis: (1) texto ≥4.5:1; (2) componente/botão vs fundo ≥3:1 (1.4.11). CTA = roxo no claro, champanhe no escuro (passa os 2). No light, rosé/nude como TEXTO usam -ink.",
     "focus": "outline:2px solid var(--lilas) + box-shadow var(--focus); guard @media (forced-colors: active).",
     "reducedMotion": "Respeitar prefers-reduced-motion.",
     "touchTarget": "≥44px.",

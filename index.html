@@ -22,15 +22,15 @@
     --brand-preto:#000000;
 
     /* ===== Variações derivadas (design system) ===== */
-    --bg:#14100E; --bg2:#1D1714; --card:#251C18; --card2:#30241E;
+    --bg:#0C0A12; --bg2:#161120; --card:#1E1828; --card2:#282132;
     --line:rgba(205,162,155,.16);
-    --roxo:#5C342D; --roxo2:#8A554B; --roxo-bright:#743F36;
+    --roxo:#2A1149; --roxo2:#3E1968; --roxo-bright:#644389;
     --lilas:#D6A99F; --lilas-soft:#E8D5CE;
     --txt:#FBF6F4; --mut:#C8B6AF;
     --gold:#CDA29B; --gold-deep:#B98C84; --rose:#E8D5CE; --peach:#DDB9AE;
     --gold-line:rgba(205,162,155,.42); --rose-line:rgba(232,213,206,.42);
     --legal-mut:#A28C84;
-    --sh:rgba(138,90,80,.40); --sh-strong:rgba(138,90,80,.50);
+    --sh:rgba(62,25,104,.40); --sh-strong:rgba(62,25,104,.50);
 
     /* ===== Tokens de sistema (robustez / reuso) ===== */
     --gold-ink:#CDA29B; --rose-ink:#E8D5CE;        /* no dark, texto = cor cheia (já tem contraste) */
@@ -60,30 +60,32 @@
     /* elevação semântica (papel → nível) */
     --elev-raised:var(--elev-1); --elev-overlay:var(--elev-3); --elev-modal:var(--elev-4);
     color-scheme:dark;
-  }
+    --cta-grad:linear-gradient(120deg,#ECDDC6,#DABF9D); --cta-solid:#E1C9AC; --cta-solid-h:#D3B58E; --cta-ink:#2A1149;
+}
 
   /* ===== TEMA LIGHT · ativado por [data-theme="light"] no <html> ===== */
   [data-theme="light"]{
     --bg:#FBF6F4; --bg2:#F6ECE8; --card:#FDF8F6; --card2:#F4E5DF;
-    --line:rgba(138,90,80,.16);
-    --roxo:#5C342D; --roxo2:#8A554B; --roxo-bright:#743F36;
-    --lilas:#8A554B; --lilas-soft:#6E4640;
+    --line:rgba(62,25,104,.16);
+    --roxo:#2A1149; --roxo2:#3E1968; --roxo-bright:#644389;
+    --lilas:#3E1968; --lilas-soft:#5B3A86;
     --txt:#2B2730; --mut:#6F5C55; --legal-mut:#6F5C55;
     --gold:#CDA29B; --gold-deep:#B98C84; --gold-ink:#8E5A50;
     --rose:#E8D5CE; --rose-ink:#8A6258; --peach:#DDB9AE;
     --gold-line:rgba(142,90,80,.55); --rose-line:rgba(138,98,88,.50);
-    --sh:rgba(138,90,80,.18); --sh-strong:rgba(138,90,80,.26);
+    --sh:rgba(62,25,104,.18); --sh-strong:rgba(62,25,104,.26);
     --logo:#3E1968;        /* marca: roxo institucional sobre claro */
     /* semânticas (variantes -ink p/ contraste no claro) */
     --success:#147A45; --warning:#8A5A00; --danger:#BE2C45; --info:#5B3A86;
-    --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10); --danger-bg:rgba(199,47,73,.10); --row-sel:rgba(138,90,80,.10); --info-bg:rgba(91,58,134,.10);
+    --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10); --danger-bg:rgba(199,47,73,.10); --row-sel:rgba(62,25,104,.10); --info-bg:rgba(91,58,134,.10);
     /* elevação no claro: sombras roxas sutis */
-    --elev-1:0 1px 2px rgba(138,90,80,.10), 0 2px 6px rgba(138,90,80,.08);
-    --elev-2:0 2px 4px rgba(138,90,80,.10), 0 8px 16px rgba(138,90,80,.12);
-    --elev-3:0 4px 10px rgba(138,90,80,.12), 0 16px 32px rgba(138,90,80,.16);
-    --elev-4:0 8px 18px rgba(138,90,80,.14), 0 28px 56px rgba(138,90,80,.22);
+    --elev-1:0 1px 2px rgba(62,25,104,.10), 0 2px 6px rgba(62,25,104,.08);
+    --elev-2:0 2px 4px rgba(62,25,104,.10), 0 8px 16px rgba(62,25,104,.12);
+    --elev-3:0 4px 10px rgba(62,25,104,.12), 0 16px 32px rgba(62,25,104,.16);
+    --elev-4:0 8px 18px rgba(62,25,104,.14), 0 28px 56px rgba(62,25,104,.22);
     color-scheme:light;
-  }
+    --cta-grad:linear-gradient(120deg,#3E1968,#2A1149); --cta-solid:#3E1968; --cta-solid-h:#644389; --cta-ink:#fff;
+}
   *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;line-height:1.5;font-variant-numeric:tabular-nums}
   .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(20px,4vw,44px)}
@@ -227,8 +229,8 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   .lc{border-radius:var(--radius-lg);border:1px solid var(--line);padding:30px 26px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
   .lc svg{height:60px;width:auto}
   .lc span{font-size:12px;color:inherit;font-weight:500;line-height:1.4}
-  .lc-dark{background:#14100E;color:#C8B6AF;border-color:rgba(205,162,155,.18)}
-  .lc-light{background:#FBF6F4;color:#6F5C55;border-color:rgba(138,90,80,.16)}
+  .lc-dark{background:#0C0A12;color:#C8B6AF;border-color:rgba(205,162,155,.18)}
+  .lc-light{background:#FBF6F4;color:#6F5C55;border-color:rgba(62,25,104,.16)}
   .logo-rules{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px}
   .lr{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:20px 22px}
   .lr b{display:block;font-size:13px;margin-bottom:8px}
@@ -241,8 +243,8 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   .themes-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px}
   @media(max-width:820px){.themes-grid{grid-template-columns:1fr}}
   .tcard{border-radius:18px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column}
-  .tcard.dark{--t-bg:#14100E;--t-bg2:#1D1714;--t-card:#251C18;--t-line:rgba(205,162,155,.16);--t-txt:#FBF6F4;--t-mut:#C8B6AF;--t-eyebrow:#D6A99F;--t-gold-ink:#CDA29B;--t-grad-a:#8A554B;--t-grad-b:#5C342D}
-  .tcard.light{--t-bg:#FBF6F4;--t-bg2:#F6ECE8;--t-card:#FDF8F6;--t-line:rgba(138,90,80,.16);--t-txt:#2B2730;--t-mut:#6F5C55;--t-eyebrow:#8A554B;--t-gold-ink:#8E5A50;--t-grad-a:#743F36;--t-grad-b:#8A554B}
+  .tcard.dark{--t-bg:#0C0A12;--t-bg2:#161120;--t-card:#1E1828;--t-line:rgba(205,162,155,.16);--t-txt:#FBF6F4;--t-mut:#C8B6AF;--t-eyebrow:#D6A99F;--t-gold-ink:#CDA29B;--t-grad-a:#ECDDC6;--t-grad-b:#DABF9D;--t-btn-ink:#2A1149}
+  .tcard.light{--t-bg:#FBF6F4;--t-bg2:#F6ECE8;--t-card:#FDF8F6;--t-line:rgba(62,25,104,.16);--t-txt:#2B2730;--t-mut:#6F5C55;--t-eyebrow:#3E1968;--t-gold-ink:#8E5A50;--t-grad-a:#644389;--t-grad-b:#3E1968;--t-btn-ink:#fff}
   .tcard .bar{padding:11px 18px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;display:flex;justify-content:space-between;align-items:center;background:var(--t-bg2);color:var(--t-mut)}
   .tcard .dot{width:34px;height:8px;border-radius:8px;background:linear-gradient(120deg,var(--t-grad-a),var(--t-grad-b))}
   .tcard .body{background:var(--t-bg);padding:28px;flex:1}
@@ -253,7 +255,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   .tcard .mini .mt{font-size:13px;font-weight:600;color:var(--t-txt)}
   .tcard .mini .ms{font-size:12.5px;font-weight:300;color:var(--t-mut);margin-top:4px}
   .tcard .row{display:flex;align-items:center;gap:10px;margin-top:18px;flex-wrap:wrap}
-  .tcard .btn-mini{background:linear-gradient(120deg,var(--t-grad-a),var(--t-grad-b));color:#fff;font-weight:600;font-size:14px;padding:12px 22px;border-radius:28px}
+  .tcard .btn-mini{background:linear-gradient(120deg,var(--t-grad-a),var(--t-grad-b));color:var(--t-btn-ink);font-weight:600;font-size:14px;padding:12px 22px;border-radius:28px}
   .tcard .badge-mini{font-size:10.5px;font-weight:700;color:var(--t-gold-ink);border:1px solid var(--t-gold-ink);padding:5px 11px;border-radius:20px}
   .tcard .swrow{display:flex;gap:6px;margin-top:20px;flex-wrap:wrap}
   .tcard .swrow i{width:30px;height:30px;border-radius:7px;display:block;border:1px solid var(--t-line)}
@@ -338,10 +340,10 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   .b.sm{font-size:13px;padding:10px 18px;gap:7px}
   .b.md{font-size:15px;padding:14px 26px}
   .b.lg{font-size:16px;padding:17px 32px}
-  .b.fill{background:linear-gradient(120deg,var(--roxo2),var(--roxo));color:#fff;box-shadow:0 10px 30px var(--sh)}
+  .b.fill{background:var(--cta-grad);color:var(--cta-ink);box-shadow:0 10px 30px var(--sh)}
   .b.fill:hover{transform:translateY(-2px);box-shadow:0 16px 38px var(--sh-strong)}
-  .b.solid{background:var(--roxo2);color:#fff}
-  .b.solid:hover{background:var(--roxo-bright)}
+  .b.solid{background:var(--cta-solid);color:var(--cta-ink)}
+  .b.solid:hover{background:var(--cta-solid-h)}
   .b.outline{background:transparent;color:var(--txt);border:1px solid var(--line)}
   .b.outline:hover{border-color:var(--lilas);color:var(--lilas)}
   .b.ghost{background:transparent;color:var(--lilas);padding:10px 14px;border-radius:8px}
@@ -379,27 +381,27 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   .grad.on-light .dl-png:hover{background:rgba(255,255,255,.85)}
   .grad .dl-png.is-done{background:var(--success);color:#fff;border-color:transparent;opacity:1;transform:none}
   @media(hover:none){.grad .dl-png{opacity:1;transform:none}}
-  .g-prim{background:linear-gradient(120deg,#8A554B,#5C342D)}
-  .g-aurora{background:radial-gradient(at 30% 0%,rgba(138,90,80,.55) 0,transparent 60%),radial-gradient(at 80% 100%,rgba(232,213,206,.26) 0,transparent 55%),#14100E}
-  .g-mesh1{background:radial-gradient(at 22% 20%,rgba(205,162,155,.52) 0,transparent 52%),radial-gradient(at 82% 26%,rgba(232,213,206,.40) 0,transparent 50%),radial-gradient(at 62% 92%,rgba(138,90,80,.55) 0,transparent 55%),#14100E}
+  .g-prim{background:linear-gradient(120deg,#3E1968,#2A1149)}
+  .g-aurora{background:radial-gradient(at 30% 0%,rgba(62,25,104,.55) 0,transparent 60%),radial-gradient(at 80% 100%,rgba(232,213,206,.26) 0,transparent 55%),#0C0A12}
+  .g-mesh1{background:radial-gradient(at 22% 20%,rgba(205,162,155,.52) 0,transparent 52%),radial-gradient(at 82% 26%,rgba(232,213,206,.40) 0,transparent 50%),radial-gradient(at 62% 92%,rgba(62,25,104,.55) 0,transparent 55%),#0C0A12}
   .g-vibe{background:linear-gradient(120deg,#3E1968,#CDA29B)}
-  .g-sunset{background:linear-gradient(120deg,#5C342D 0%,#8A554B 42%,#E8D5CE 118%)}
+  .g-sunset{background:linear-gradient(120deg,#2A1149 0%,#3E1968 42%,#E8D5CE 118%)}
   .g-warm{background:linear-gradient(120deg,#D6A99F,#DDB9AE)}
-  .g-spot{background:radial-gradient(at 50% -15%,rgba(205,162,155,.55) 0,transparent 62%),#14100E}
-  .g-duotone{background:linear-gradient(160deg,#8A554B,#14100E)}
+  .g-spot{background:radial-gradient(at 50% -15%,rgba(205,162,155,.55) 0,transparent 62%),#0C0A12}
+  .g-duotone{background:linear-gradient(160deg,#3E1968,#0C0A12)}
   /* dark · meshes */
-  .g-nebula{background:radial-gradient(at 18% 22%,rgba(205,162,155,.55) 0,transparent 45%),radial-gradient(at 78% 18%,rgba(232,213,206,.30) 0,transparent 42%),radial-gradient(at 68% 78%,rgba(138,90,80,.70) 0,transparent 50%),radial-gradient(at 30% 92%,rgba(221,185,174,.22) 0,transparent 46%),#14100E}
-  .g-mesh3{background:radial-gradient(at 15% 25%,rgba(176,122,110,.60) 0,transparent 45%),radial-gradient(at 85% 20%,rgba(205,162,155,.40) 0,transparent 42%),radial-gradient(at 50% 85%,rgba(92,52,45,.90) 0,transparent 55%),radial-gradient(at 82% 78%,rgba(232,213,206,.20) 0,transparent 44%),#14100E}
-  .g-mesh4{background:radial-gradient(at 28% 16%,rgba(138,90,80,.70) 0,transparent 48%),radial-gradient(at 76% 38%,rgba(205,162,155,.34) 0,transparent 46%),radial-gradient(at 20% 82%,rgba(221,185,174,.18) 0,transparent 46%),radial-gradient(at 90% 88%,rgba(138,90,80,.52) 0,transparent 48%),#18120F}
-  .g-mesh5{background:radial-gradient(at 50% 8%,rgba(205,162,155,.45) 0,transparent 50%),radial-gradient(at 12% 62%,rgba(232,213,206,.24) 0,transparent 46%),radial-gradient(at 88% 66%,rgba(138,90,80,.62) 0,transparent 50%),#14100E}
-  .g-mesh6{background:radial-gradient(at 35% 30%,rgba(176,122,110,.55) 0,transparent 48%),radial-gradient(at 70% 20%,rgba(221,185,174,.16) 0,transparent 42%),radial-gradient(at 60% 90%,rgba(138,90,80,.66) 0,transparent 52%),radial-gradient(at 10% 80%,rgba(205,162,155,.30) 0,transparent 46%),#100B09}
+  .g-nebula{background:radial-gradient(at 18% 22%,rgba(205,162,155,.55) 0,transparent 45%),radial-gradient(at 78% 18%,rgba(232,213,206,.30) 0,transparent 42%),radial-gradient(at 68% 78%,rgba(62,25,104,.70) 0,transparent 50%),radial-gradient(at 30% 92%,rgba(221,185,174,.22) 0,transparent 46%),#0C0A12}
+  .g-mesh3{background:radial-gradient(at 15% 25%,rgba(176,122,110,.60) 0,transparent 45%),radial-gradient(at 85% 20%,rgba(205,162,155,.40) 0,transparent 42%),radial-gradient(at 50% 85%,rgba(92,52,45,.90) 0,transparent 55%),radial-gradient(at 82% 78%,rgba(232,213,206,.20) 0,transparent 44%),#0C0A12}
+  .g-mesh4{background:radial-gradient(at 28% 16%,rgba(62,25,104,.70) 0,transparent 48%),radial-gradient(at 76% 38%,rgba(205,162,155,.34) 0,transparent 46%),radial-gradient(at 20% 82%,rgba(221,185,174,.18) 0,transparent 46%),radial-gradient(at 90% 88%,rgba(62,25,104,.52) 0,transparent 48%),#0F0B15}
+  .g-mesh5{background:radial-gradient(at 50% 8%,rgba(205,162,155,.45) 0,transparent 50%),radial-gradient(at 12% 62%,rgba(232,213,206,.24) 0,transparent 46%),radial-gradient(at 88% 66%,rgba(62,25,104,.62) 0,transparent 50%),#0C0A12}
+  .g-mesh6{background:radial-gradient(at 35% 30%,rgba(176,122,110,.55) 0,transparent 48%),radial-gradient(at 70% 20%,rgba(221,185,174,.16) 0,transparent 42%),radial-gradient(at 60% 90%,rgba(62,25,104,.66) 0,transparent 52%),radial-gradient(at 10% 80%,rgba(205,162,155,.30) 0,transparent 46%),#0A0710}
   /* dark · abstratos */
-  .g-spectral{background:linear-gradient(110deg,#5C342D,#8A554B 28%,#D6A99F 54%,#E8D5CE 80%,#DDB9AE)}
-  .g-aurora2{background:linear-gradient(160deg,#14100E 0%,#241712 42%,#5C342D 74%,#6E4640 100%)}
-  .g-glow-edge{background:radial-gradient(120% 80% at 50% 120%,rgba(205,162,155,.55) 0,transparent 55%),radial-gradient(90% 60% at 50% -10%,rgba(221,185,174,.18) 0,transparent 50%),#14100E}
-  .g-ribbon{background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 2px,transparent 2px 24px),linear-gradient(120deg,#5C342D,#8A554B 45%,#D6A99F)}
+  .g-spectral{background:linear-gradient(110deg,#2A1149,#3E1968 28%,#D6A99F 54%,#E8D5CE 80%,#DDB9AE)}
+  .g-aurora2{background:linear-gradient(160deg,#0C0A12 0%,#1A1228 42%,#2A1149 74%,#5B3A86 100%)}
+  .g-glow-edge{background:radial-gradient(120% 80% at 50% 120%,rgba(205,162,155,.55) 0,transparent 55%),radial-gradient(90% 60% at 50% -10%,rgba(221,185,174,.18) 0,transparent 50%),#0C0A12}
+  .g-ribbon{background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 2px,transparent 2px 24px),linear-gradient(120deg,#2A1149,#3E1968 45%,#D6A99F)}
   .gl-wash{background:linear-gradient(160deg,#FBF6F4,#F2E7E1)}
-  .gl-aurora{background:radial-gradient(at 25% 0%,rgba(138,90,80,.16) 0,transparent 60%),radial-gradient(at 90% 100%,rgba(221,185,174,.26) 0,transparent 55%),#FBF6F4}
+  .gl-aurora{background:radial-gradient(at 25% 0%,rgba(62,25,104,.16) 0,transparent 60%),radial-gradient(at 90% 100%,rgba(221,185,174,.26) 0,transparent 55%),#FBF6F4}
   .gl-pastel{background:radial-gradient(at 15% 20%,rgba(205,162,155,.30) 0,transparent 55%),radial-gradient(at 85% 16%,rgba(232,213,206,.28) 0,transparent 50%),radial-gradient(at 70% 95%,rgba(221,185,174,.30) 0,transparent 55%),#FBF6F4}
   .gl-lilac{background:linear-gradient(120deg,#F4E9E4,#E0C9C0)}
   .gl-peach{background:linear-gradient(120deg,#F4E7E1,#EFDBD1)}
@@ -1048,7 +1050,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
 
   <div class="group-lbl">Composições</div>
   <div class="logo-grid">
-    <div class="logo-cell" data-logo="logo-real-d" data-name="facialscale-logo-fundo-escuro" style="background:#14100E;border-color:rgba(205,162,155,.18)">
+    <div class="logo-cell" data-logo="logo-real-d" data-name="facialscale-logo-fundo-escuro" style="background:#0C0A12;border-color:rgba(205,162,155,.18)">
       <svg class="lg-show" viewBox="0 0 890 130" role="img" aria-label="Logotipo Facial Scale para fundo escuro"><use href="#logo-real-d"/></svg>
       <span class="logo-tag" style="color:#C8B6AF">Versão clara · sobre fundo escuro</span>
       <div class="lg-actions">
@@ -1056,7 +1058,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
         <button class="lg-btn" type="button" data-act="download" aria-label="Baixar SVG (versão clara)"><svg aria-hidden="true"><use href="#i-download"/></svg>Baixar SVG</button>
       </div>
     </div>
-    <div class="logo-cell" data-logo="logo-real-l" data-name="facialscale-logo-fundo-claro" style="background:#FBF6F4;border-color:rgba(138,90,80,.18)">
+    <div class="logo-cell" data-logo="logo-real-l" data-name="facialscale-logo-fundo-claro" style="background:#FBF6F4;border-color:rgba(62,25,104,.18)">
       <svg class="lg-show" viewBox="0 0 890 130" role="img" aria-label="Logotipo Facial Scale para fundo claro"><use href="#logo-real-l"/></svg>
       <span class="logo-tag" style="color:#6F5C55">Versão escura · sobre fundo claro</span>
       <div class="lg-actions">
@@ -1087,10 +1089,10 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
 
   <div class="group-lbl">Institucionais (paleta Facial Scale)</div>
   <div class="sw-grid">
-    <div class="sw"><div class="chip" style="background:#3E1968"></div><div class="meta"><div class="nm">Roxo profundo</div><div class="hex">#3E1968</div><div class="role">Pontual. Logo, marca e destaques.</div></div></div>
-    <div class="sw"><div class="chip" style="background:#644389"></div><div class="meta"><div class="nm">Roxo claro</div><div class="hex">#644389</div><div class="role">Pontual. Variação do roxo da marca.</div></div></div>
-    <div class="sw"><div class="chip" style="background:#8A5EBA"></div><div class="meta"><div class="nm">Roxo claro · variação</div><div class="hex">#8A5EBA</div><div class="role">Pontual. Detalhe vivo do roxo.</div></div></div>
-    <div class="sw"><div class="chip" style="background:#CDA29B"><span class="pant" style="color:#140D1B;background:rgba(255,255,255,.4)">acento</span></div><div class="meta"><div class="nm">Rosé</div><div class="hex">#CDA29B</div><div class="role">Accent principal. Links, foco e CTAs (tons derivados).</div></div></div>
+    <div class="sw"><div class="chip" style="background:#3E1968"></div><div class="meta"><div class="nm">Roxo profundo</div><div class="hex">#3E1968</div><div class="role">Estrutura. Fundos, CTA no claro e links.</div></div></div>
+    <div class="sw"><div class="chip" style="background:#644389"></div><div class="meta"><div class="nm">Roxo claro</div><div class="hex">#644389</div><div class="role">Secundária. Hover e gradientes.</div></div></div>
+    <div class="sw"><div class="chip" style="background:#8A5EBA"></div><div class="meta"><div class="nm">Roxo claro · variação</div><div class="hex">#8A5EBA</div><div class="role">Variação. Destaques e detalhes.</div></div></div>
+    <div class="sw"><div class="chip" style="background:#CDA29B"><span class="pant" style="color:#140D1B;background:rgba(255,255,255,.4)">acento</span></div><div class="meta"><div class="nm">Rosé</div><div class="hex">#CDA29B</div><div class="role">Accent quente. Links no escuro, selos e calor.</div></div></div>
     <div class="sw"><div class="chip" style="background:#E8D5CE"><span class="pant" style="color:#140D1B;background:rgba(255,255,255,.4)">apoio</span></div><div class="meta"><div class="nm">Nude</div><div class="hex">#E8D5CE</div><div class="role">Apoio. Hover, tints e superfícies suaves.</div></div></div>
     <div class="sw bordered"><div class="chip" style="background:#2B2730"></div><div class="meta"><div class="nm">Grafite</div><div class="hex">#2B2730</div><div class="role">Texto no tema claro. A marca não usa preto puro.</div></div></div>
     <div class="sw bordered"><div class="chip" style="background:#FBF6F4"></div><div class="meta"><div class="nm">Branco quente</div><div class="hex">#FBF6F4</div><div class="role">Fundo claro (off-white). A marca não usa branco puro.</div></div></div>
@@ -1098,10 +1100,10 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
 
   <div class="group-lbl">Tema escuro · fundos (quase-preto, sem preto puro)</div>
   <div class="sw-grid">
-    <div class="sw bordered"><div class="chip" style="background:#14100E"></div><div class="meta"><div class="nm">BG</div><div class="hex">#14100E</div><div class="role">Fundo principal (quase-preto rosado, não #000).</div></div></div>
-    <div class="sw bordered"><div class="chip" style="background:#1D1714"></div><div class="meta"><div class="nm">BG 2</div><div class="hex">#1D1714</div><div class="role">Faixas alternadas.</div></div></div>
-    <div class="sw bordered"><div class="chip" style="background:#251C18"></div><div class="meta"><div class="nm">Cartão</div><div class="hex">#251C18</div><div class="role">Cartões e blocos.</div></div></div>
-    <div class="sw bordered"><div class="chip" style="background:#30241E"></div><div class="meta"><div class="nm">Cartão 2</div><div class="hex">#30241E</div><div class="role">Elevação extra.</div></div></div>
+    <div class="sw bordered"><div class="chip" style="background:#0C0A12"></div><div class="meta"><div class="nm">BG</div><div class="hex">#0C0A12</div><div class="role">Fundo principal (quase-preto roxo, não #000).</div></div></div>
+    <div class="sw bordered"><div class="chip" style="background:#161120"></div><div class="meta"><div class="nm">BG 2</div><div class="hex">#161120</div><div class="role">Faixas alternadas.</div></div></div>
+    <div class="sw bordered"><div class="chip" style="background:#1E1828"></div><div class="meta"><div class="nm">Cartão</div><div class="hex">#1E1828</div><div class="role">Cartões e blocos.</div></div></div>
+    <div class="sw bordered"><div class="chip" style="background:#282132"></div><div class="meta"><div class="nm">Cartão 2</div><div class="hex">#282132</div><div class="role">Elevação extra.</div></div></div>
   </div>
 
   <div class="group-lbl">Tema claro · fundos (off-white, sem branco puro)</div>
@@ -1112,12 +1114,12 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
     <div class="sw bordered"><div class="chip" style="background:#F4E5DF"></div><div class="meta"><div class="nm">Cartão 2</div><div class="hex">#F4E5DF</div><div class="role">Elevação extra.</div></div></div>
   </div>
 
-  <div class="group-lbl">Accent (rosé) · escala de uso</div>
+  <div class="group-lbl">CTA e interativo · escala de uso</div>
   <div class="sw-grid">
-    <div class="sw"><div class="chip" style="background:#5C342D"></div><div class="meta"><div class="nm">Rosé profundo</div><div class="hex">#5C342D</div><div class="role">Fim de gradiente do botão.</div></div></div>
-    <div class="sw"><div class="chip" style="background:#8A554B"></div><div class="meta"><div class="nm">Primária</div><div class="hex">#8A554B</div><div class="role">CTAs, links e início de gradiente.</div></div></div>
-    <div class="sw"><div class="chip" style="background:#743F36"></div><div class="meta"><div class="nm">Hover</div><div class="hex">#743F36</div><div class="role">Hover do botão sólido.</div></div></div>
-    <div class="sw"><div class="chip" style="background:#D6A99F"></div><div class="meta"><div class="nm">Accent claro</div><div class="hex">#D6A99F</div><div class="role">Links e foco sobre escuro.</div></div></div>
+    <div class="sw"><div class="chip" style="background:#E1C9AC"></div><div class="meta"><div class="nm">Champanhe</div><div class="hex">#E1C9AC</div><div class="role">CTA (preenchido/sólido) no tema escuro.</div></div></div>
+    <div class="sw"><div class="chip" style="background:#3E1968"></div><div class="meta"><div class="nm">Roxo · primária</div><div class="hex">#3E1968</div><div class="role">CTA e links no tema claro; estrutura.</div></div></div>
+    <div class="sw"><div class="chip" style="background:#644389"></div><div class="meta"><div class="nm">Roxo · hover</div><div class="hex">#644389</div><div class="role">Hover sólido e gradientes.</div></div></div>
+    <div class="sw"><div class="chip" style="background:#D6A99F"></div><div class="meta"><div class="nm">Rosé · accent</div><div class="hex">#D6A99F</div><div class="role">Links e foco sobre escuro.</div></div></div>
   </div>
 
   <div class="group-lbl">Texto</div>
@@ -1139,8 +1141,8 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   <div class="group-lbl">Linha e sombras</div>
   <div class="sw-grid">
     <div class="sw"><div class="chip" style="background:rgba(205,162,155,.16)"></div><div class="meta"><div class="nm">Linha</div><div class="hex">rgba(205,162,155,.16)</div><div class="role">Bordas e divisores (rosé @16%).</div></div></div>
-    <div class="sw"><div class="chip" style="background:#14100E;box-shadow:0 10px 30px rgba(138,90,80,.40) inset"></div><div class="meta"><div class="nm">Sombra</div><div class="hex">rgba(138,90,80,.40)</div><div class="role">Elevação de botões (rosé @40%).</div></div></div>
-    <div class="sw"><div class="chip" style="background:#14100E;box-shadow:0 10px 30px rgba(138,90,80,.50) inset"></div><div class="meta"><div class="nm">Sombra forte</div><div class="hex">rgba(138,90,80,.50)</div><div class="role">Ao passar o cursor em botões (rosé @50%).</div></div></div>
+    <div class="sw"><div class="chip" style="background:#0C0A12;box-shadow:0 10px 30px rgba(62,25,104,.40) inset"></div><div class="meta"><div class="nm">Sombra</div><div class="hex">rgba(62,25,104,.40)</div><div class="role">Elevação de botões (roxo @40%).</div></div></div>
+    <div class="sw"><div class="chip" style="background:#0C0A12;box-shadow:0 10px 30px rgba(62,25,104,.50) inset"></div><div class="meta"><div class="nm">Sombra forte</div><div class="hex">rgba(62,25,104,.50)</div><div class="role">Ao passar o cursor em botões (roxo @50%).</div></div></div>
   </div>
 
   <div class="group-lbl">Semânticas · feedback (sempre com ícone, nunca só cor)</div>
@@ -1159,10 +1161,10 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
       <div class="body">
         <div class="eb">A virada</div>
         <h3>Do teto da cadeira ao negócio que roda.</h3>
-        <div class="bd">Fundo escuro quente: quase-preto rosado, texto quase branco, accents em rosé.</div>
+        <div class="bd">Fundo escuro: quase-preto roxo, texto quase branco, accents em rosé e CTA champanhe.</div>
         <div class="mini"><div class="mt">Painel ROI</div><div class="ms">Veja em que semana o investimento se pagou.</div></div>
         <div class="row"><a class="btn-mini">Acelerar →</a><span class="badge-mini">Promessa de resultado</span></div>
-        <div class="swrow"><i style="background:#14100E"></i><i style="background:#251C18"></i><i style="background:#8A554B"></i><i style="background:#D6A99F"></i><i style="background:#CDA29B"></i><i style="background:#E8D5CE"></i></div>
+        <div class="swrow"><i style="background:#0C0A12"></i><i style="background:#1E1828"></i><i style="background:#E1C9AC"></i><i style="background:#D6A99F"></i><i style="background:#CDA29B"></i><i style="background:#E8D5CE"></i></div>
       </div>
     </div>
     <div class="tcard light">
@@ -1170,10 +1172,10 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
       <div class="body">
         <div class="eb">A virada</div>
         <h3>Do teto da cadeira ao negócio que roda.</h3>
-        <div class="bd">Fundo off-white #FBF6F4 (branco do brand suavizado, sem branco puro), texto grafite, accents em rosé.</div>
+        <div class="bd">Fundo off-white #FBF6F4 (branco do brand suavizado, sem branco puro), texto grafite, accents em roxo e toques de rosé.</div>
         <div class="mini"><div class="mt">Painel ROI</div><div class="ms">Veja em que semana o investimento se pagou.</div></div>
         <div class="row"><a class="btn-mini">Acelerar →</a><span class="badge-mini">Promessa de resultado</span></div>
-        <div class="swrow"><i style="background:#FBF6F4"></i><i style="background:#F6ECE8"></i><i style="background:#8A554B"></i><i style="background:#D6A99F"></i><i style="background:#CDA29B"></i><i style="background:#E8D5CE"></i></div>
+        <div class="swrow"><i style="background:#FBF6F4"></i><i style="background:#F6ECE8"></i><i style="background:#3E1968"></i><i style="background:#D6A99F"></i><i style="background:#CDA29B"></i><i style="background:#E8D5CE"></i></div>
       </div>
     </div>
   </div>
@@ -1886,19 +1888,20 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   <span class="k">--brand-amarelado</span>:#DDB9AE; <span class="k">--brand-branco</span>:#FFFFFF; <span class="k">--brand-preto</span>:#000000;
 
   <span class="c">/* fundos */</span>
-  <span class="k">--bg</span>:#14100E; <span class="k">--bg2</span>:#1D1714; <span class="k">--card</span>:#251C18; <span class="k">--card2</span>:#30241E;
+  <span class="k">--bg</span>:#0C0A12; <span class="k">--bg2</span>:#161120; <span class="k">--card</span>:#1E1828; <span class="k">--card2</span>:#282132;
   <span class="k">--line</span>:rgba(205,162,155,.16);
 
-  <span class="c">/* accent rosé / texto */</span>
-  <span class="k">--roxo</span>:#5C342D; <span class="k">--roxo2</span>:#8A554B; <span class="k">--roxo-bright</span>:#743F36;
+  <span class="c">/* roxo (estrutura) / accent / texto */</span>
+  <span class="k">--roxo</span>:#2A1149; <span class="k">--roxo2</span>:#3E1968; <span class="k">--roxo-bright</span>:#644389;
   <span class="k">--lilas</span>:#D6A99F; <span class="k">--lilas-soft</span>:#E8D5CE;
+  <span class="k">--cta-solid</span>:#E1C9AC; <span class="k">--cta-ink</span>:#2A1149;   <span class="c">/* CTA champanhe (escuro) */</span>
   <span class="k">--txt</span>:#FBF6F4; <span class="k">--mut</span>:#C8B6AF; <span class="k">--legal-mut</span>:#A28C84;
 
   <span class="c">/* accent quente */</span>
   <span class="k">--gold</span>:#CDA29B; <span class="k">--gold-deep</span>:#B98C84; <span class="k">--rose</span>:#E8D5CE; <span class="k">--peach</span>:#DDB9AE;
 
   <span class="c">/* sombras */</span>
-  <span class="k">--sh</span>:rgba(138,90,80,.40); <span class="k">--sh-strong</span>:rgba(138,90,80,.50);
+  <span class="k">--sh</span>:rgba(62,25,104,.40); <span class="k">--sh-strong</span>:rgba(62,25,104,.50);
 
   <span class="c">/* sistema · raio, espaçamento, z-index, movimento, foco */</span>
   <span class="k">--radius-sm</span>:8px; <span class="k">--radius-md</span>:14px; <span class="k">--radius-lg</span>:18px; <span class="k">--radius-pill</span>:30px;
@@ -1921,12 +1924,13 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
 <span class="c">/* ---- tema light · alterna com [data-theme="light"] no &lt;html&gt; (toggle + localStorage) ---- */</span>
 [data-theme="light"]{
   <span class="k">--bg</span>:#FBF6F4; <span class="k">--bg2</span>:#F6ECE8; <span class="k">--card</span>:#FDF8F6; <span class="k">--card2</span>:#F4E5DF;
-  <span class="k">--line</span>:rgba(138,90,80,.16);
+  <span class="k">--line</span>:rgba(62,25,104,.16);
   <span class="k">--txt</span>:#2B2730; <span class="k">--mut</span>:#6F5C55; <span class="k">--legal-mut</span>:#6F5C55;
-  <span class="k">--roxo2</span>:#8A554B; <span class="k">--roxo-bright</span>:#743F36; <span class="k">--lilas-soft</span>:#6E4640;
-  <span class="k">--lilas</span>:#8A554B;          <span class="c">/* accent/texto: rosé p/ contraste no claro */</span>
+  <span class="k">--roxo2</span>:#3E1968; <span class="k">--roxo-bright</span>:#644389; <span class="k">--lilas-soft</span>:#5B3A86;
+  <span class="k">--lilas</span>:#3E1968;          <span class="c">/* accent/texto: roxo p/ contraste no claro */</span>
+  <span class="k">--cta-solid</span>:#3E1968; <span class="k">--cta-ink</span>:#fff;
   <span class="k">--gold</span>:#CDA29B; <span class="k">--gold-ink</span>:#8E5A50; <span class="k">--rose</span>:#E8D5CE; <span class="k">--rose-ink</span>:#8A6258; <span class="k">--peach</span>:#DDB9AE;
-  <span class="k">--sh</span>:rgba(138,90,80,.18); <span class="k">--sh-strong</span>:rgba(138,90,80,.26);
+  <span class="k">--sh</span>:rgba(62,25,104,.18); <span class="k">--sh-strong</span>:rgba(62,25,104,.26);
 }</div>
 
   <div class="group-lbl">JSON (Color Styles + Text Styles do Framer)</div>
@@ -1938,10 +1942,10 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   <span class="k">"brand/Variação"</span>:    "#8A5EBA",
   <span class="k">"brand/Rosé"</span>:        "#CDA29B",
   <span class="k">"brand/Nude"</span>:        "#E8D5CE",
-  <span class="k">"bg/BG"</span>:             "#14100E",
-  <span class="k">"bg/BG2"</span>:            "#1D1714",
-  <span class="k">"bg/Cartão"</span>:           "#251C18",
-  <span class="k">"bg/Cartão2"</span>:          "#30241E",
+  <span class="k">"bg/BG"</span>:             "#0C0A12",
+  <span class="k">"bg/BG2"</span>:            "#161120",
+  <span class="k">"bg/Cartão"</span>:           "#1E1828",
+  <span class="k">"bg/Cartão2"</span>:          "#282132",
   <span class="k">"roxo/Profundo"</span>:         "#2A1149",
   <span class="k">"roxo/Brilhante"</span>:       "#644389",
   <span class="k">"text/Texto"</span>:        "#FBF6F4",
@@ -1951,6 +1955,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   <span class="k">"accent/Rosé"</span>:          "#CDA29B",
   <span class="k">"accent/RoséProfundo"</span>:  "#B98C84",
   <span class="k">"accent/Nude"</span>:         "#E8D5CE",
+  <span class="k">"accent/Champanhe"</span>:    "#E1C9AC",   <span class="c">// CTA no escuro</span>
   <span class="k">"accent/Pêssego"</span>:      "#DDB9AE",
   <span class="k">"line"</span>:              "rgba(205,162,155,.16)",
   <span class="c">// feedback · valor dark (paridade light no comentário)</span>
@@ -1979,19 +1984,19 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   <p class="sec-note" style="margin-top:0">No Framer, crie cada cor como um <b class="hl">Color Style</b> com um valor de <b class="hl">Claro</b> e um de <b class="hl">Escuro</b>. O site publicado segue a aparência do sistema do visitante automaticamente (<code>prefers-color-scheme</code>); dá pra adicionar um toggle e lembrar a escolha do visitante. Atalho no canvas: Ctrl+Cmd+N. Valores por estilo:</p>
   <div class="fr">
     <div class="fr-row head"><div>Color Style</div><div>Claro</div><div>Escuro</div></div>
-    <div class="fr-row"><div class="nm">bg / Fundo</div><div class="val"><span class="fr-sw" style="background:#FBF6F4"></span>#FBF6F4</div><div class="val"><span class="fr-sw" style="background:#14100E"></span>#14100E</div></div>
-    <div class="fr-row"><div class="nm">bg / Superfície</div><div class="val"><span class="fr-sw" style="background:#F6ECE8"></span>#F6ECE8</div><div class="val"><span class="fr-sw" style="background:#1D1714"></span>#1D1714</div></div>
-    <div class="fr-row"><div class="nm">bg / Cartão</div><div class="val"><span class="fr-sw" style="background:#FDF8F6"></span>#FDF8F6</div><div class="val"><span class="fr-sw" style="background:#251C18"></span>#251C18</div></div>
-    <div class="fr-row"><div class="nm">line / Borda</div><div class="val"><span class="fr-sw" style="background:rgba(138,90,80,.16)"></span>rgba(138,90,80,.16)</div><div class="val"><span class="fr-sw" style="background:rgba(205,162,155,.16)"></span>rgba(205,162,155,.16)</div></div>
+    <div class="fr-row"><div class="nm">bg / Fundo</div><div class="val"><span class="fr-sw" style="background:#FBF6F4"></span>#FBF6F4</div><div class="val"><span class="fr-sw" style="background:#0C0A12"></span>#0C0A12</div></div>
+    <div class="fr-row"><div class="nm">bg / Superfície</div><div class="val"><span class="fr-sw" style="background:#F6ECE8"></span>#F6ECE8</div><div class="val"><span class="fr-sw" style="background:#161120"></span>#161120</div></div>
+    <div class="fr-row"><div class="nm">bg / Cartão</div><div class="val"><span class="fr-sw" style="background:#FDF8F6"></span>#FDF8F6</div><div class="val"><span class="fr-sw" style="background:#1E1828"></span>#1E1828</div></div>
+    <div class="fr-row"><div class="nm">line / Borda</div><div class="val"><span class="fr-sw" style="background:rgba(62,25,104,.16)"></span>rgba(62,25,104,.16)</div><div class="val"><span class="fr-sw" style="background:rgba(205,162,155,.16)"></span>rgba(205,162,155,.16)</div></div>
     <div class="fr-row"><div class="nm">text / Texto</div><div class="val"><span class="fr-sw" style="background:#2B2730"></span>#2B2730</div><div class="val"><span class="fr-sw" style="background:#FBF6F4"></span>#FBF6F4</div></div>
     <div class="fr-row"><div class="nm">text / Secundário</div><div class="val"><span class="fr-sw" style="background:#6F5C55"></span>#6F5C55</div><div class="val"><span class="fr-sw" style="background:#A28C84"></span>#A28C84</div></div>
-    <div class="fr-row"><div class="nm">accent / Rosé (CTA)</div><div class="val"><span class="fr-sw" style="background:#8A554B"></span>#8A554B</div><div class="val"><span class="fr-sw" style="background:#8A554B"></span>#8A554B</div></div>
-    <div class="fr-row"><div class="nm">accent / Rosé (link)</div><div class="val"><span class="fr-sw" style="background:#8A554B"></span>#8A554B</div><div class="val"><span class="fr-sw" style="background:#D6A99F"></span>#D6A99F</div></div>
+    <div class="fr-row"><div class="nm">accent / CTA</div><div class="val"><span class="fr-sw" style="background:#3E1968"></span>#3E1968</div><div class="val"><span class="fr-sw" style="background:#E1C9AC"></span>#E1C9AC</div></div>
+    <div class="fr-row"><div class="nm">accent / Link</div><div class="val"><span class="fr-sw" style="background:#3E1968"></span>#3E1968</div><div class="val"><span class="fr-sw" style="background:#D6A99F"></span>#D6A99F</div></div>
     <div class="fr-row"><div class="nm">accent / Rosé · texto</div><div class="val"><span class="fr-sw" style="background:#8E5A50"></span>#8E5A50</div><div class="val"><span class="fr-sw" style="background:#CDA29B"></span>#CDA29B</div></div>
     <div class="fr-row"><div class="nm">accent / Rosé · preenchimento</div><div class="val"><span class="fr-sw" style="background:#CDA29B"></span>#CDA29B</div><div class="val"><span class="fr-sw" style="background:#CDA29B"></span>#CDA29B</div></div>
     <div class="fr-row"><div class="nm">accent / Nude · texto</div><div class="val"><span class="fr-sw" style="background:#8A6258"></span>#8A6258</div><div class="val"><span class="fr-sw" style="background:#E8D5CE"></span>#E8D5CE</div></div>
-    <div class="fr-row"><div class="nm">chrome / Navegação (= --card)</div><div class="val"><span class="fr-sw" style="background:#FDF8F6"></span>#FDF8F6</div><div class="val"><span class="fr-sw" style="background:#251C18"></span>#251C18</div></div>
-    <div class="fr-row"><div class="nm">chrome / Rodapé (= --bg)</div><div class="val"><span class="fr-sw" style="background:#FBF6F4"></span>#FBF6F4</div><div class="val"><span class="fr-sw" style="background:#14100E"></span>#14100E</div></div>
+    <div class="fr-row"><div class="nm">chrome / Navegação (= --card)</div><div class="val"><span class="fr-sw" style="background:#FDF8F6"></span>#FDF8F6</div><div class="val"><span class="fr-sw" style="background:#1E1828"></span>#1E1828</div></div>
+    <div class="fr-row"><div class="nm">chrome / Rodapé (= --bg)</div><div class="val"><span class="fr-sw" style="background:#FBF6F4"></span>#FBF6F4</div><div class="val"><span class="fr-sw" style="background:#0C0A12"></span>#0C0A12</div></div>
     <div class="fr-row"><div class="nm">chrome / Rodapé · texto</div><div class="val"><span class="fr-sw" style="background:#6F5C55"></span>#6F5C55</div><div class="val"><span class="fr-sw" style="background:#A28C84"></span>#A28C84</div></div>
   </div>
   <p class="sec-note" style="margin-top:16px;font-size:12.5px">Refs Framer: <a href="https://www.framer.com/help/articles/light-and-dark-mode-options/" style="color:var(--lilas)">Modo claro e escuro no Framer</a> &middot; <a href="https://www.framer.com/academy/lessons/light-dark-mode" style="color:var(--lilas)">Academy: modo claro e escuro</a></p>

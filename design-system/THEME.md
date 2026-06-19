@@ -1,5 +1,7 @@
 # Tema claro/escuro — Facial Scale Design System
 
+**Versão:** 1.0.0
+
 Desenvolvido por **Edegar Junior**.
 
 **Regra:** o **dark é a base**; o **light é a variante**. O site/app **segue automaticamente a aparência do sistema do visitante** (`prefers-color-scheme`). Opcionalmente, um **toggle** deixa o usuário escolher e a escolha é **lembrada** (`localStorage`).
@@ -14,7 +16,7 @@ Três camadas, nesta ordem:
 
 ```css
 /* 1) Base = dark (padrão) */
-:root{ --bg:#14100E; --txt:#FBF6F4; /* … todos os tokens dark … */ color-scheme:dark; }
+:root{ --bg:#0C0A12; --txt:#FBF6F4; /* … todos os tokens dark … */ color-scheme:dark; }
 
 /* 2) Segue o sistema: se o SO está em light e o usuário NÃO escolheu manualmente */
 @media (prefers-color-scheme: light){
@@ -48,6 +50,10 @@ btn.addEventListener('click',function(){
 ```
 
 > `color-scheme` em cada tema faz scrollbars/controles nativos acompanharem. No light, dourado/rosa como **texto** usam as variantes `-ink`.
+>
+> **CTA por tema (botão sólido):** no tema **claro** o botão é **roxo** (`--cta-solid:#3E1968`, texto branco `--cta-ink:#fff`); no tema **escuro** ele vira **champanhe** (`--cta-solid:#E1C9AC`, texto roxo `--cta-ink:#2A1149`) — o champanhe dá destaque/contraste sobre o fundo escuro. Tokens: `--cta-grad` / `--cta-solid` / `--cta-ink`.
+>
+> **Acessibilidade (WCAG AA, dois níveis):** (1) **texto** ≥ 4.5:1 contra o fundo; (2) **componente/botão** vs fundo ≥ 3:1 (SC 1.4.11 — Non-text Contrast). Tanto o CTA roxo (claro) quanto o champanhe (escuro) precisam atender ao nível 2 contra o respectivo fundo, além do contraste de texto interno (nível 1).
 
 ---
 
@@ -67,4 +73,6 @@ btn.addEventListener('click',function(){
 - [ ] `prefers-color-scheme` ativo (web: o `@media`; Framer: Color Styles com Dark).
 - [ ] Toggle opcional persiste a escolha (`fs-theme`) e sobrepõe o sistema.
 - [ ] No light, texto dourado/rosa usa `-ink` (contraste AA).
+- [ ] WCAG AA nível 1: texto ≥ 4.5:1 contra o fundo (nos dois temas).
+- [ ] WCAG AA nível 2: botões/componentes têm contraste ≥ 3:1 contra o fundo (SC 1.4.11 — Non-text Contrast), incluindo CTA roxo (claro) e champanhe (escuro).
 - [ ] Testar nos dois temas (contraste e legibilidade).

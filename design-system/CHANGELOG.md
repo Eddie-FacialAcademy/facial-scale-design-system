@@ -19,12 +19,13 @@ _Nada pendente no momento._
 Primeira versão do Design System da **Facial Scale**, marca-irmã da Facial Class e da Corporal Class no ecossistema Facial Academy. Mesma arquitetura dos DS irmãos, recolorida e re-ambientada para o domínio comercial do programa de aceleração.
 
 ### Identidade
-- Paleta institucional Facial Scale: **roxo profundo** `#3E1968`, roxo claro `#644389`, variação `#8A5EBA`, **rosé** `#CDA29B` (accent/CTA), **nude** `#E8D5CE` (accent/CTA), grafite `#2B2730`, branco quente `#FBF6F4`. A marca não usa branco nem preto puro em fundos.
+- Paleta institucional Facial Scale: **roxo profundo** `#3E1968`, roxo claro `#644389`, variação `#8A5EBA`, **rosé** `#CDA29B` (accent quente), **nude** `#E8D5CE` (accent quente), grafite `#2B2730`, branco quente `#FBF6F4`. A marca não usa branco nem preto puro em fundos.
+- CTA (botão preenchido): **roxo** `#3E1968` (texto branco) no tema **claro** e **champanhe** `#E1C9AC` (texto roxo escuro `#2A1149`) no tema **escuro** — o champanhe dá destaque/contraste no fundo escuro. Tokens `--cta-grad` / `--cta-solid` / `--cta-ink`. Rosé e nude são apenas accents quentes, não CTA.
 - Logotipo "facialSCALE" embutido em SVG (sem ícone/símbolo isolado — a marca é só logotipo). Versão em cor (gradiente, SVG real) para fundo claro e escuro como tratamento principal; versão 1-cor (branco quente, roxo profundo ou grafite), que segue `--logo`/`currentColor`, apenas em "Cores oficiais".
 
 ### Fundações
 - Arquitetura de tokens em 3 camadas (`primitive → semantic/intent → component`), prefixo de classe `fs-`, chave de tema `fs-theme`.
-- Theming **dark/light** com paridade total e contraste **WCAG AA**; numerais `tabular-nums`; tokens de foundation (opacidade, border-width, blur, breakpoints, elevação, sizing/touch ≥ 44px, aspect-ratio).
+- Theming **dark/light** com paridade total e contraste **WCAG AA** em dois níveis: (1) texto ≥ 4.5:1; (2) componente/botão vs fundo ≥ 3:1 (WCAG 1.4.11). O CTA (roxo no claro, champanhe no escuro) passa nos dois níveis. Numerais `tabular-nums`; tokens de foundation (opacidade, border-width, blur, breakpoints, elevação, sizing/touch ≥ 44px, aspect-ratio).
 - Tipografia Silka (fallback Poppins → system-ui), escala fluida com `clamp()`.
 
 ### Produto

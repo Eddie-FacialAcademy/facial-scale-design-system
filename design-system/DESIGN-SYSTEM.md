@@ -2,7 +2,7 @@
 
 **Versão 1.0.0** · Desenvolvido por **Edegar Junior** · Identidade própria da **Facial Scale** (ecossistema Facial Academy).
 
-Sistema de design portátil para web (HTML/CSS, React, Framer). Dark por padrão, light por troca de tema. Esta pasta é a **fonte da verdade** para aplicar a marca em qualquer projeto.
+Sistema de design portátil para web (HTML/CSS, React, Framer). Dark por padrão, light por troca de tema. Fundos escuros e estrutura são **roxo** (quase-preto roxo, `bg #0C0A12` / `bg2 #161120`) — **nunca marrom nem quase-preto rosado**. Esta pasta é a **fonte da verdade** para aplicar a marca em qualquer projeto.
 
 ## Arquivos
 
@@ -35,7 +35,7 @@ Sistema de design portátil para web (HTML/CSS, React, Framer). Dark por padrão
 </head>
 <body>
   <h1 class="fs-h1">Pare de construir <span class="fs-hl">no escuro.</span></h1>
-  <button class="fs-btn fs-fill">Acelerar <svg class="fs-ico">…</svg></button>
+  <button class="fs-btn fs-fill">Acelerar <svg class="fs-ico">…</svg></button>  <!-- CTA: roxo no claro / champanhe no escuro -->
 </body>
 ```
 A fonte **Silka** vem em `silka.css` (woff2 embutido, self-contained) — linke antes do CSS principal. Sem ela, cai em **Poppins** (fallback) e, por fim, `system-ui` — sem quebrar.
@@ -62,17 +62,17 @@ Importe `facial-scale-design-tokens.json` e gere variáveis no seu formato (CSS 
 ```html
 <script>(function(){try{var t=localStorage.getItem('fs-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
 ```
-No light, **gold (rosé) e rosa como texto** usam variantes `-ink` (`--gold-ink`, `--rose-ink`); como preenchimento mantêm a cor institucional. (Os tokens chamam-se `--gold`/`--gold-ink`, mas o valor é **rosé** `#CDA29B` — não há dourado real na paleta.) A marca usa por padrão a **versão COR** do logo (gradiente, SVG real) — uma para fundo claro e outra para fundo escuro. A versão **1-cor** (`--logo`: branco quente no dark / roxo profundo no light, ou grafite) é de **uso restrito**, documentada apenas em "Cores oficiais". A marca é **apenas logotipo** — não há ícone/símbolo de marca (Phosphor é só para UI).
+No light, **gold (rosé) e rosa como texto** usam variantes `-ink` (`--gold-ink`, `--rose-ink`); como preenchimento mantêm a cor institucional. (Os tokens chamam-se `--gold`/`--gold-ink`, mas o valor é **rosé** `#CDA29B` — não há dourado real na paleta.) Rosé e nude são **accents quentes** (não a cor primária): os **links** seguem `--lilas` — **roxo** `#3E1968` no claro, **rosé** `#D6A99F` no escuro. A marca usa por padrão a **versão COR** do logo (gradiente, SVG real) — uma para fundo claro e outra para fundo escuro. A versão **1-cor** (`--logo`: branco quente no dark / roxo profundo no light, ou grafite) é de **uso restrito**, documentada apenas em "Cores oficiais". A marca é **apenas logotipo** — não há ícone/símbolo de marca (Phosphor é só para UI).
 
 ### Tokens de sistema
 - **Raio:** sm 8 · md 14 · lg 18 · pill 30
 - **Espaçamento (base 4/8):** 4 · 8 · 12 · 16 · 24 · 32 · 48
-- **Elevação:** `--elev-1..4` (sombras com matiz quente/rosé sutis no light, mais densas no dark)
+- **Elevação:** `--elev-1..4` (sombras com matiz **roxo** sutis no light, mais densas no dark — `shadow rgba(62,25,104,.40)` no dark)
 - **Z-index:** base 0 · raised 10 · sticky 40 · overlay 100 · toast 1000
 - **Motion:** fast .15s · base .2s · slow .4s · ease `cubic-bezier(.2,.8,.2,1)`
-- **Foco:** `--focus: 0 0 0 3px rgba(205,162,155,.55)`
+- **Foco:** `--focus: 0 0 0 3px rgba(205,162,155,.55)` — o anel usa **rosé no escuro** e **roxo no claro** (via `--lilas`: `#D6A99F` no dark, `#3E1968` no light).
 - **Foundations:** opacidade (disabled .45 / muted .66 / hover .08 / overlay .58) · border-width (hair/1/2) · blur (sm 6 / md 12 / lg 20) · breakpoints (390/810/1200) · sizing (ícone 16/20/24, control/touch 44px) · aspect-ratio (1:1 / 4:3 / 16:9).
-- **Elevação semântica:** `--elev-raised` (=1) · `--elev-overlay` (=3) · `--elev-modal` (=4); use o papel, não o número. Sombras em **camadas**: matiz quente/rosé em ambos os temas — dark `rgba(138,90,80,.40)`, light com matiz quente/rosé `rgba(138,90,80,…)` (não roxo).
+- **Elevação semântica:** `--elev-raised` (=1) · `--elev-overlay` (=3) · `--elev-modal` (=4); use o papel, não o número. Sombras em **camadas**: matiz **roxo** em ambos os temas — dark `shadow rgba(62,25,104,.40)`, light com matiz roxo `rgba(62,25,104,.18)`.
 
 ### Cantos aninhados (nested corners)
 Quando um elemento arredondado fica **dentro** de outro, os cantos devem ser **concêntricos** (mesmo centro de arco):
@@ -171,7 +171,7 @@ Biblioteca **Phosphor**, peso **Thin** (traço de **1pt** / `stroke-width:1` na 
 > **Marca x ícone:** a marca é **apenas logotipo** — não há ícone/símbolo de marca. "Ícone" aqui é sempre **ícone de UI** (Phosphor), nunca um ativo de identidade.
 
 ### Gradientes
-Somente cores do brand. O **gradiente-assinatura primário** (CTA, superfícies de destaque) é **rosé/nude**. O roxo aparece só em **1 gradiente pontual** da paleta institucional — nunca como gradiente primário de componentes/CTA. **Não usar conic, blob nem halo** — preferir **meshes** (radiais multiponto) e lineares. Variantes light sobre base branca. Biblioteca completa no brand-system.html.
+Somente cores do brand. O **roxo é a estrutura** e o **CTA do tema claro**; o **champanhe** (`#E1C9AC`) é o **CTA do tema escuro** (destaque/contraste sobre o fundo roxo) — via `--cta`/`--cta-ink`. **Rosé/nude são accents quentes**, não o gradiente-assinatura de CTA. **Não usar conic, blob nem halo** — preferir **meshes** (radiais multiponto) e lineares. Variantes light sobre base branca. Biblioteca completa no brand-system.html.
 
 ---
 
@@ -179,28 +179,29 @@ Somente cores do brand. O **gradiente-assinatura primário** (CTA, superfícies 
 
 ### Botão — `fs-btn`
 `class="fs-btn <variante> <tamanho>"`
-- **Variantes:** `fs-fill` (gradiente-assinatura rosé/nude, primário) · `fs-solid` · `fs-outline` · `fs-ghost` (texto) · `fs-gold` · `fs-gold-o`
+- **Variantes:** `fs-fill` (CTA primário via `--cta`/`--cta-grad`/`--cta-ink` — **roxo** `#3E1968` no claro com texto branco; **champanhe** `#E1C9AC` no escuro com texto roxo `#2A1149`) · `fs-solid` · `fs-outline` · `fs-ghost` (texto) · `fs-gold` · `fs-gold-o` (accent **rosé** secundário — não o primário)
 - **Tamanhos:** `fs-sm` · (md = padrão) · `fs-lg`
 - **Estados:** hover · `:active` · `:focus-visible` · `:disabled` / `[aria-disabled]`
 - **Regras:** altura mínima 44px, raio pill, ícone Phosphor opcional (`<svg class="fs-ico">`). Use `<button>` (não `<a>` sem href) para ser focável.
+- **Acessibilidade (2 níveis):** (1) **texto ≥4.5:1** (label vs preenchimento); (2) **componente/botão vs fundo ≥3:1** (WCAG 1.4.11 Non-text Contrast). O CTA `fs-fill` passa os dois: roxo no claro (texto branco), champanhe no escuro (texto roxo `#2A1149`).
 
 ### Status / feedback — `fs-status is-success|is-warning|is-danger|is-info`
 Sempre **ícone + texto**, nunca só cor. Verde/âmbar/vermelho saem da paleta de propósito (são funcionais).
 
 ### Outros
-`fs-chip` · `fs-badge` (rosé — token `--gold` = `#CDA29B`, não dourado real) · `fs-card` · `fs-logo` — versão **1-cor** do logo em SVG com `fill="currentColor"` (uso restrito); o padrão da marca é a **versão COR** (gradiente, SVG real). A marca é **só logotipo**, sem ícone/símbolo.
+`fs-chip` · `fs-badge` (accent **rosé** secundário — token `--gold` = `#CDA29B`, não dourado real; o botão primário usa `--cta`, roxo no claro / champanhe no escuro) · `fs-card` · `fs-logo` — versão **1-cor** do logo em SVG com `fill="currentColor"` (uso restrito); o padrão da marca é a **versão COR** (gradiente, SVG real). A marca é **só logotipo**, sem ícone/símbolo.
 
 ---
 
 ## Acessibilidade (obrigatório)
-- **Contraste WCAG AA:** texto ≥4.5:1, grande/UI ≥3:1. No light, gold (rosé)/rosa como texto = `-ink`.
+- **Contraste WCAG AA (2 níveis):** (1) **texto ≥4.5:1** (texto grande ≥3:1); (2) **componente/botão vs fundo ≥3:1** (WCAG 1.4.11 Non-text Contrast). No light, gold (rosé)/rosa como texto = `-ink`.
 - **Foco visível:** `outline:2px solid var(--lilas)` + `box-shadow var(--focus)`; guard `@media (forced-colors: active)`.
 - **`prefers-reduced-motion`:** reduzir transições/animações.
 - **Toque ≥44px.** **Cor nunca sozinha** (estados com ícone+texto).
 
 ## Faça / Não faça
 ✅ Consumir tokens · dark+light em paridade · Silka · Phosphor Thin · meshes do brand · foco visível.
-🚫 Hex solto nos componentes · cor fora das 7 institucionais · conic/blob/halo · emoji como ícone · texto dourado claro no light (usar `-ink`) · botão `<a>` sem href.
+🚫 **SEM MARROM em lugar nenhum** (regra dura) · Hex solto nos componentes · cor fora das 7 institucionais · conic/blob/halo · emoji como ícone · texto dourado claro no light (usar `-ink`) · botão `<a>` sem href.
 
 ---
 
@@ -215,5 +216,5 @@ O sistema evolui sob governança: veja **`CONTRIBUTING.md`** (princípios, regra
 Ao aplicar este design system em um projeto, **leia `facial-scale-design-tokens.json`** e siga as regras acima. Prompt sugerido:
 
 > Você vai aplicar o **Facial Scale Design System** (autor: Edegar Junior). Fonte da verdade: `facial-scale-design-tokens.json` + `facial-scale-design-system.css` desta pasta.
-> Regras inegociáveis: (1) só use as 7 cores institucionais e seus derivados — nada de hex fora da paleta; (2) componha tudo com os tokens (nunca hex solto); (3) entregue **dark e light** com paridade, dark por padrão e light via `data-theme="light"`; (4) tipografia **Silka** com a escala responsiva por breakpoint (Desktop/Tablet/Phone) usando `clamp()`, body ≥16px no mobile; (5) ícones **Phosphor peso Thin** com `currentColor`; (6) gradientes **só meshes/lineares do brand — sem conic/blob/halo**; (7) acessibilidade WCAG AA: foco visível, `prefers-reduced-motion`, toque ≥44px, cor nunca sozinha; (8) botão = `<button>` com as variantes `fs-*`.
+> Regras inegociáveis: (1) só use as 7 cores institucionais e seus derivados — nada de hex fora da paleta; fundos/estrutura = **roxo** (quase-preto roxo), **SEM MARROM** em lugar nenhum; CTA (`--cta`/`--cta-ink`) = **roxo no claro** (texto branco) / **champanhe `#E1C9AC` no escuro** (texto roxo `#2A1149`); rosé/nude são **accents quentes**, não a primária; (2) componha tudo com os tokens (nunca hex solto); (3) entregue **dark e light** com paridade, dark por padrão e light via `data-theme="light"`; (4) tipografia **Silka** com a escala responsiva por breakpoint (Desktop/Tablet/Phone) usando `clamp()`, body ≥16px no mobile; (5) ícones **Phosphor peso Thin** com `currentColor`; (6) gradientes **só meshes/lineares do brand — sem conic/blob/halo**; (7) acessibilidade WCAG AA em **2 níveis** (texto ≥4.5:1 e componente/botão vs fundo ≥3:1, 1.4.11), foco visível, `prefers-reduced-motion`, toque ≥44px, cor nunca sozinha; (8) botão = `<button>` com as variantes `fs-*`.
 > Antes de finalizar, verifique contraste nos dois temas e ausência de scroll horizontal de 320px a 1440px.

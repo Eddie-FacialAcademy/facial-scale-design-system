@@ -4,8 +4,8 @@
    Identidade própria da Facial Scale (parte do ecossistema Facial Academy).
    ----------------------------------------------------------------------------
    DIREÇÃO DE COR
-     Accent/CTA/links/superfícies = ROSÉ + NUDE (predominantes).
-     Roxo = uso PONTUAL (logo, --info, destaques). Tokens, nunca hex solto.
+     Fundos e estrutura = ROXO escuro. CTA = roxo (claro) e CHAMPANHE (escuro, p/ destaque/contraste).
+     Accents quentes = ROSÉ + NUDE. Sem marrom. Tokens, nunca hex solto.
    ----------------------------------------------------------------------------
    USO RÁPIDO
      <html lang="pt-BR">                         <!-- dark é o padrão -->
@@ -28,12 +28,12 @@
   --brand-branco:#FFFFFF;
   --brand-preto:#000000;
 
-  /* Superfícies (dark · quase-preto quente, sem preto puro) */
-  --bg:#14100E; --bg2:#1D1714; --card:#251C18; --card2:#30241E;
+  /* Superfícies (dark · quase-preto roxo, sem preto puro) */
+  --bg:#0C0A12; --bg2:#161120; --card:#1E1828; --card2:#282132;
   --line:rgba(205,162,155,.16);
 
-  /* Accent (rosé) / texto — nomes --roxo*/--lilas* são legados; valor = rosé */
-  --roxo:#5C342D; --roxo2:#8A554B; --roxo-bright:#743F36;
+  /* Roxo (estrutura) e accent rosé. O CTA usa --cta (champanhe no escuro, roxo no claro). */
+  --roxo:#2A1149; --roxo2:#3E1968; --roxo-bright:#644389;
   --lilas:#D6A99F; --lilas-soft:#E8D5CE;
   --txt:#FBF6F4; --mut:#C8B6AF; --legal-mut:#A28C84;
 
@@ -50,8 +50,8 @@
   --success-bg:rgba(69,192,138,.14); --warning-bg:rgba(232,181,61,.14);
   --danger-bg:rgba(255,125,147,.14); --row-sel:rgba(205,162,155,.16); --info-bg:rgba(169,138,208,.14);
 
-  /* Sombras / elevação (sombra quente rosé; elevação dark usa preto) */
-  --sh:rgba(138,90,80,.40); --sh-strong:rgba(138,90,80,.50);
+  /* Sombras / elevação (sombra roxa; elevação dark usa preto) */
+  --sh:rgba(62,25,104,.40); --sh-strong:rgba(62,25,104,.50);
   --elev-1:0 1px 2px rgba(0,0,0,.34), 0 2px 6px rgba(0,0,0,.30);
   --elev-2:0 2px 4px rgba(0,0,0,.34), 0 8px 18px rgba(0,0,0,.40);
   --elev-3:0 4px 12px rgba(0,0,0,.45), 0 16px 36px rgba(0,0,0,.55);
@@ -77,15 +77,17 @@
 
   --font-sans:'Silka','Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   color-scheme:dark;
+
+  --cta-grad:linear-gradient(120deg,#ECDDC6,#DABF9D); --cta-solid:#E1C9AC; --cta-solid-h:#D3B58E; --cta-ink:#2A1149;
 }
 
 /* Valores do tema light, reutilizados pelos dois seletores abaixo */
 @media (prefers-color-scheme: light){
   :root:not([data-theme="dark"]){
     --bg:#FBF6F4; --bg2:#F6ECE8; --card:#FDF8F6; --card2:#F4E5DF;
-    --line:rgba(138,90,80,.16);
-    --roxo:#5C342D; --roxo2:#8A554B; --roxo-bright:#743F36;
-    --lilas:#8A554B; --lilas-soft:#6E4640;
+    --line:rgba(62,25,104,.16);
+    --roxo:#2A1149; --roxo2:#3E1968; --roxo-bright:#644389;
+    --lilas:#3E1968; --lilas-soft:#5B3A86;
     --txt:#2B2730; --mut:#6F5C55; --legal-mut:#6F5C55;
     --gold:#CDA29B; --gold-deep:#B98C84; --gold-ink:#8E5A50; --gold-line:rgba(142,90,80,.55);
     --rose:#E8D5CE; --rose-ink:#8A6258; --rose-line:rgba(138,98,88,.50);
@@ -93,18 +95,20 @@
     --logo:#3E1968;
     --success:#147A45; --warning:#8A5A00; --danger:#BE2C45; --info:#5B3A86;
     --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10);
-    --danger-bg:rgba(199,47,73,.10); --row-sel:rgba(138,90,80,.10); --info-bg:rgba(91,58,134,.10);
-    --sh:rgba(138,90,80,.18); --sh-strong:rgba(138,90,80,.26);
-    --elev-1:0 1px 2px rgba(138,90,80,.10), 0 2px 6px rgba(138,90,80,.08); --elev-2:0 2px 4px rgba(138,90,80,.10), 0 8px 16px rgba(138,90,80,.12);
-    --elev-3:0 4px 10px rgba(138,90,80,.12), 0 16px 32px rgba(138,90,80,.16); --elev-4:0 8px 18px rgba(138,90,80,.14), 0 28px 56px rgba(138,90,80,.22);
+    --danger-bg:rgba(199,47,73,.10); --row-sel:rgba(62,25,104,.10); --info-bg:rgba(91,58,134,.10);
+    --sh:rgba(62,25,104,.18); --sh-strong:rgba(62,25,104,.26);
+    --elev-1:0 1px 2px rgba(62,25,104,.10), 0 2px 6px rgba(62,25,104,.08); --elev-2:0 2px 4px rgba(62,25,104,.10), 0 8px 16px rgba(62,25,104,.12);
+    --elev-3:0 4px 10px rgba(62,25,104,.12), 0 16px 32px rgba(62,25,104,.16); --elev-4:0 8px 18px rgba(62,25,104,.14), 0 28px 56px rgba(62,25,104,.22);
     color-scheme:light;
-  }
+  
+    --cta-grad:linear-gradient(120deg,#3E1968,#2A1149); --cta-solid:#3E1968; --cta-solid-h:#644389; --cta-ink:#fff;
+}
 }
 [data-theme="light"]{
   --bg:#FBF6F4; --bg2:#F6ECE8; --card:#FDF8F6; --card2:#F4E5DF;
-  --line:rgba(138,90,80,.16);
-  --roxo:#5C342D; --roxo2:#8A554B; --roxo-bright:#743F36;
-  --lilas:#8A554B; --lilas-soft:#6E4640;
+  --line:rgba(62,25,104,.16);
+  --roxo:#2A1149; --roxo2:#3E1968; --roxo-bright:#644389;
+  --lilas:#3E1968; --lilas-soft:#5B3A86;
   --txt:#2B2730; --mut:#6F5C55; --legal-mut:#6F5C55;
   --gold:#CDA29B; --gold-deep:#B98C84; --gold-ink:#8E5A50; --gold-line:rgba(142,90,80,.55);
   --rose:#E8D5CE; --rose-ink:#8A6258; --rose-line:rgba(138,98,88,.50);
@@ -112,11 +116,13 @@
   --logo:#3E1968;
   --success:#147A45; --warning:#8A5A00; --danger:#BE2C45; --info:#5B3A86;
   --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10);
-  --danger-bg:rgba(199,47,73,.10); --row-sel:rgba(138,90,80,.10); --info-bg:rgba(91,58,134,.10);
-  --sh:rgba(138,90,80,.18); --sh-strong:rgba(138,90,80,.26);
-  --elev-1:0 1px 2px rgba(138,90,80,.10), 0 2px 6px rgba(138,90,80,.08); --elev-2:0 2px 4px rgba(138,90,80,.10), 0 8px 16px rgba(138,90,80,.12);
-  --elev-3:0 4px 10px rgba(138,90,80,.12), 0 16px 32px rgba(138,90,80,.16); --elev-4:0 8px 18px rgba(138,90,80,.14), 0 28px 56px rgba(138,90,80,.22);
+  --danger-bg:rgba(199,47,73,.10); --row-sel:rgba(62,25,104,.10); --info-bg:rgba(91,58,134,.10);
+  --sh:rgba(62,25,104,.18); --sh-strong:rgba(62,25,104,.26);
+  --elev-1:0 1px 2px rgba(62,25,104,.10), 0 2px 6px rgba(62,25,104,.08); --elev-2:0 2px 4px rgba(62,25,104,.10), 0 8px 16px rgba(62,25,104,.12);
+  --elev-3:0 4px 10px rgba(62,25,104,.12), 0 16px 32px rgba(62,25,104,.16); --elev-4:0 8px 18px rgba(62,25,104,.14), 0 28px 56px rgba(62,25,104,.22);
   color-scheme:light;
+
+  --cta-grad:linear-gradient(120deg,#3E1968,#2A1149); --cta-solid:#3E1968; --cta-solid-h:#644389; --cta-ink:#fff;
 }
 
 /* ===== RESET / BASE ======================================================= */
@@ -163,10 +169,10 @@ a:focus-visible,button:focus-visible,.fs-btn:focus-visible,[tabindex]:focus-visi
   border-radius:var(--radius-pill);transition:.2s var(--ease);white-space:nowrap;min-height:44px;max-width:100%;padding:14px 26px}
 .fs-btn.fs-sm{font-size:13px;padding:10px 18px;gap:7px}
 .fs-btn.fs-lg{font-size:16px;padding:17px 32px}
-.fs-btn.fs-fill{background:linear-gradient(120deg,var(--roxo2),var(--roxo));color:#fff;box-shadow:0 10px 30px var(--sh)}
+.fs-btn.fs-fill{background:var(--cta-grad);color:var(--cta-ink);box-shadow:0 10px 30px var(--sh)}
 .fs-btn.fs-fill:hover{transform:translateY(-2px);box-shadow:0 16px 38px var(--sh-strong)}
-.fs-btn.fs-solid{background:var(--roxo2);color:#fff}
-.fs-btn.fs-solid:hover{background:var(--roxo-bright)}
+.fs-btn.fs-solid{background:var(--cta-solid);color:var(--cta-ink)}
+.fs-btn.fs-solid:hover{background:var(--cta-solid-h)}
 .fs-btn.fs-outline{background:transparent;color:var(--txt);border:1px solid var(--line)}
 .fs-btn.fs-outline:hover{border-color:var(--lilas);color:var(--lilas)}
 .fs-btn.fs-ghost{background:transparent;color:var(--lilas);padding:10px 14px;border-radius:var(--radius-sm)}
@@ -200,12 +206,12 @@ a:focus-visible,button:focus-visible,.fs-btn:focus-visible,[tabindex]:focus-visi
 
 /* ===== GRADIENTES (subconjunto — só meshes/lineares do brand) =============
    Biblioteca completa em index.html (seção Gradientes).
-   Direção: rosé/nude predominante; roxo só pontual. NÃO usar conic, blob ou halo. */
-.fs-grad-primary{background:linear-gradient(120deg,#8A554B,#5C342D)}
-.fs-grad-spectral{background:linear-gradient(110deg,#5C342D,#8A554B 28%,#D6A99F 54%,#E8D5CE 80%,#DDB9AE)}
+   Direção: roxo na estrutura, rosé/nude nos accents, champanhe no CTA escuro. Sem marrom. NÃO usar conic, blob ou halo. */
+.fs-grad-primary{background:linear-gradient(120deg,#3E1968,#2A1149)}
+.fs-grad-spectral{background:linear-gradient(110deg,#2A1149,#3E1968 28%,#D6A99F 54%,#E8D5CE 80%,#DDB9AE)}
 .fs-grad-mesh{background:
   radial-gradient(at 18% 22%,rgba(205,162,155,.55) 0,transparent 45%),
   radial-gradient(at 78% 18%,rgba(232,213,206,.30) 0,transparent 42%),
-  radial-gradient(at 68% 78%,rgba(138,90,80,.70) 0,transparent 50%),
-  radial-gradient(at 30% 92%,rgba(221,185,174,.22) 0,transparent 46%),#14100E}
-.fs-grad-spot{background:radial-gradient(at 50% -15%,rgba(205,162,155,.55) 0,transparent 62%),#14100E}
+  radial-gradient(at 68% 78%,rgba(62,25,104,.70) 0,transparent 50%),
+  radial-gradient(at 30% 92%,rgba(221,185,174,.22) 0,transparent 46%),#0C0A12}
+.fs-grad-spot{background:radial-gradient(at 50% -15%,rgba(205,162,155,.55) 0,transparent 62%),#0C0A12}

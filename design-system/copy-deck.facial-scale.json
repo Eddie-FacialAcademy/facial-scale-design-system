@@ -5,15 +5,15 @@
       "h1": "Pare de construir no escuro.",
       "body": "O Design System da **Facial Scale**: tokens, tipografia Silka, componentes e acessibilidade prontos para você montar telas com consistência e parar de improvisar a cada tela nova. A decisão fica no token, não no achismo."
     },
-    "marca": { "note": "A marca da Facial Scale no digital: logotipo, assinatura e uso correto sobre fundo claro e escuro. Mantém leitura e contraste nos dois temas." },
+    "marca": { "note": "A marca da Facial Scale no digital: logotipo e seu uso correto sobre fundo claro e escuro. Mantém leitura e contraste nos dois temas." },
     "cores": { "note": "Paleta institucional e seus derivados em tokens de tema, claro e escuro. O componente consome token, nunca cor fixa." },
     "gradientes": { "note": "Gradientes da marca em malhas e lineares (roxo profundo a rosé). Sem cônico, sem blob, sem halo." },
     "tipografia": { "note": "Silka em escala responsiva por ponto de quebra. Corpo com no mínimo 16px no mobile para evitar o zoom no iOS." },
     "icones": { "note": "Biblioteca Phosphor, peso Thin, traço de 1pt, herdando a cor por currentColor. O ícone nunca substitui o rótulo." },
-    "botoes": { "note": "Variantes e tamanhos com altura mínima de 44px e raio pill. O rótulo sempre diz a ação (Registrar caixa, não Enviar)." },
+    "botoes": { "note": "Variantes e tamanhos com altura mínima de 44px e raio pill. O rótulo sempre diz a ação (Registrar caixa, não Enviar). O CTA sólido usa roxo no claro e champanhe no escuro, para contrastar no fundo escuro." },
     "feedback": { "note": "Alertas, notificações e status nos quatro tons. Sempre ícone e texto juntos: a cor não comunica sozinha." },
     "avancados": { "note": "Componentes de aplicação: tabela de dados, paleta de comandos, seletor de data e navegação. Conteúdo de exemplo do domínio comercial da Facial Scale (Painel, ROI, Tarefas Críticas)." },
-    "acessibilidade": { "note": "Contraste WCAG AA, foco visível, alvo de toque de 44px e respeito a movimento reduzido. A mensagem de erro diz o que houve e como resolver." },
+    "acessibilidade": { "note": "Contraste WCAG AA em dois níveis: texto a 4.5:1 e componentes/botões a 3:1 contra o fundo (1.4.11). Foco visível, alvo de toque de 44px e respeito a movimento reduzido. A mensagem de erro diz o que houve e como resolver." },
     "fundamentos": { "note": "Cores, tipografia, espaçamento e raio: a base que todo componente consome via token." },
     "principios": { "note": "Consistência por token, paridade entre claro e escuro, acessibilidade por padrão. Decida uma vez, reaplique em todo lugar." },
     "tokens": { "note": "Valores legíveis por máquina para tema, espaçamento, raio, elevação e movimento. O componente lê o token, não o valor solto." }

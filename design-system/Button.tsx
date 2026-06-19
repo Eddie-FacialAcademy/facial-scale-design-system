@@ -1,8 +1,18 @@
-// Facial Scale Design System — Button
+// Facial Scale Design System — Button — v1.0.0
 // Desenvolvido por Edegar Junior.
 // Code Component para Framer (também funciona em React puro).
 // As cores usam as CSS variables do design system com fallback para o brand,
 // então o botão acompanha o tema (dark/light) se o site carregar os tokens.
+//
+// CTA (variantes fill/solid): usa os tokens --cta-grad / --cta-solid / --cta-ink.
+// O CTA é ROXO (#3E1968) no tema CLARO, com texto branco; e CHAMPANHE (#E1C9AC)
+// no tema ESCURO, com texto roxo (#2A1149) — o champanhe dá destaque e contraste
+// sobre o fundo escuro. Rosé/nude são apenas accents quentes, nunca o CTA.
+//
+// Acessibilidade — WCAG AA em DOIS níveis:
+//   (1) texto vs fundo do botão >= 4.5:1;
+//   (2) componente/botão vs fundo da página >= 3:1 (SC 1.4.11 Non-text Contrast).
+// Foco visível via --focus (fallback rgba(205,162,155,.55)).
 
 import * as React from "react"
 import { addPropertyControls, ControlType } from "framer"
@@ -24,6 +34,8 @@ export default function Button(props) {
         style,
     } = props
 
+    const [focused, setFocused] = React.useState(false)
+
     const sizes = {
         sm: { fontSize: 13, padding: "10px 18px", gap: 7, ico: 15 },
         md: { fontSize: 15, padding: "14px 26px", gap: 9, ico: 18 },
@@ -34,18 +46,18 @@ export default function Button(props) {
     const variants: Record<string, React.CSSProperties> = {
         fill: {
             background:
-                "linear-gradient(120deg,var(--lilas,#D6A99F),var(--peach,#DDB9AE))",
-            color: "var(--bg,#14100E)",
-            boxShadow: "0 10px 30px var(--sh,rgba(138,90,80,.40))",
+                "var(--cta-grad,linear-gradient(120deg,#E1C9AC,#E1C9AC))",
+            color: "var(--cta-ink,#2A1149)",
+            boxShadow: "0 10px 30px var(--shadow,rgba(62,25,104,.40))",
         },
-        solid: { background: "var(--rose,#E8D5CE)", color: "var(--bg,#14100E)" },
+        solid: { background: "var(--cta-solid,#E1C9AC)", color: "var(--cta-ink,#2A1149)" },
         outline: {
             background: "transparent",
             color: "var(--txt,#FBF6F4)",
             border: "1px solid var(--line,rgba(205,162,155,.16))",
         },
         ghost: { background: "transparent", color: "var(--lilas,#D6A99F)" },
-        gold: { background: "var(--gold,#CDA29B)", color: "#14100E" },
+        gold: { background: "var(--gold,#CDA29B)", color: "var(--cta-ink,#2A1149)" },
         "gold-o": {
             background: "transparent",
             color: "var(--gold-ink,#CDA29B)",
@@ -74,6 +86,11 @@ export default function Button(props) {
         transition: "transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .2s",
         opacity: disabled ? 0.42 : 1,
         pointerEvents: disabled ? "none" : "auto",
+        // Foco visível (WCAG 2.4.7 / 1.4.11) — anel só aparece no foco, via --focus.
+        outline: focused
+            ? "2px solid var(--focus,rgba(205,162,155,.55))"
+            : "2px solid transparent",
+        outlineOffset: 2,
         ...variants[variant],
         ...style,
     }
@@ -109,13 +126,21 @@ export default function Button(props) {
                 target={newTab ? "_blank" : undefined}
                 rel={newTab ? "noopener noreferrer" : undefined}
                 style={base}
+                onFocus={() => setFocused(true)}
+                onBlur={() => setFocused(false)}
             >
                 {content}
             </a>
         )
     }
     return (
-        <button type="button" style={base} disabled={disabled}>
+        <button
+            type="button"
+            style={base}
+            disabled={disabled}
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
+        >
             {content}
         </button>
     )

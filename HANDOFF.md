@@ -1,8 +1,10 @@
-# Handoff — Facial Scale Design System (estado em 2026-06-11)
+# Handoff — Facial Scale Design System v1.0.0 (estado em 2026-06-19)
 
-Desenvolvido por **Edegar Junior**. Ponto de retomada; atualizar conforme avançar.
+Desenvolvido por **Edegar Junior**. Ponto de retomada; atualizar conforme avançar. Versão atual: **1.0.0** (igual aos arquivos canônicos `index.html` / `.css` / `.json`).
 
 ## ✅ Concluído
+
+> **Direção v2 (1.0.0):** fundos escuros e **estrutura = roxo** (quase-preto roxo, nunca marrom); **CTA = roxo no tema claro e champanhe `#E1C9AC` no tema escuro**; **rosé + nude = accents quentes**. Sem marrom em lugar nenhum.
 
 ### Design system online (GitHub Pages)
 - **URL pública:** https://eddie-facialacademy.github.io/facial-scale-design-system/
@@ -13,8 +15,13 @@ Desenvolvido por **Edegar Junior**. Ponto de retomada; atualizar conforme avanç
 - `silka.css` · `facial-scale-design-system.css` · `facial-scale-design-tokens.json` · `Button.tsx` · `THEME.md` · `DESIGN-SYSTEM.md`.
 
 ### Marca (identidade própria da Facial Scale, ecossistema Facial Academy)
-- **Predominantes (accent/CTA/links/foco):** rosé `#CDA29B` + nude `#E8D5CE`. **Roxo profundo `#3E1968`:** uso pontual (logo, --info, paleta institucional, gradiente-assinatura). Paleta institucional (7): rosé `#CDA29B` (accent), nude `#E8D5CE` (apoio), grafite `#2B2730`, branco quente `#FBF6F4`, e — pontuais — roxo profundo `#3E1968`, roxo claro `#644389`, variação `#8A5EBA`.
-- **Logotipo** Facial Scale: versão COR (gradiente, SVG real) para fundo claro e para fundo escuro; versão 1-COR (branco quente / roxo profundo / grafite) só na seção Cores oficiais. SVG vetorial, escala sem perder nitidez. Sem ícone/símbolo isolado.
+- **Estrutura = roxo.** Os fundos escuros (quase-preto roxo) e toda a estrutura são **roxo profundo `#3E1968`** (família `#2A1149` / `#644389`). No tema **claro** o **CTA também é roxo `#3E1968`** (texto branco). Roxo não é "pontual": é a base da marca. **Nunca marrom, nunca fundo quente/rosado.**
+- **CTA (botão preenchido/sólido):** **ROXO no tema CLARO** (`--cta-solid #3E1968`, texto branco `--cta-ink #fff`) e **CHAMPANHE `#E1C9AC` no tema ESCURO** (texto roxo escuro `--cta-ink #2A1149`) — o champanhe dá destaque/contraste no fundo escuro. Tokens: `--cta-grad` / `--cta-solid` / `--cta-ink`.
+- **Accents quentes:** **rosé** (`#CDA29B` no claro / `#D6A99F` no escuro) + **nude `#E8D5CE`**. **Links:** rosé no tema escuro, roxo no tema claro. **Foco:** `rgba(205,162,155,.55)`. Rosé/nude são accents, não a primária nem o CTA.
+- **Pontual (--info):** `#A98AD0` no escuro / `#5B3A86` no claro — este é o uso realmente pontual da paleta.
+- **Paleta institucional (7):** roxo profundo `#3E1968`, roxo claro `#644389`, variação `#8A5EBA`, rosé `#CDA29B`, nude `#E8D5CE`, grafite `#2B2730`, branco quente `#FBF6F4` (+ champanhe `#E1C9AC` = CTA no escuro, derivado).
+- **Acessibilidade do CTA/botão (WCAG AA, 2 níveis):** (1) **texto ≥ 4.5:1** sobre o preenchimento; (2) **componente/botão vs. fundo ≥ 3:1** (WCAG 1.4.11 non-text contrast). O CTA roxo no claro e champanhe no escuro passa nos **dois** níveis.
+- **Logotipo** Facial Scale: versão COR (gradiente, SVG real) para fundo claro e para fundo escuro; versão 1-COR (branco quente / roxo profundo `#3E1968` / grafite) só na seção Cores oficiais. SVG vetorial, escala sem perder nitidez. Sem ícone/símbolo isolado. Marca = só logotipo.
 - **Tipografia** Silka — **headers em Medium (500)**; eyebrow 600; numeral 700; body 300.
 
 ## Deploy / git (durável)

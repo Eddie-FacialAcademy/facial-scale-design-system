@@ -8,8 +8,10 @@ Vale para a web (HTML/CSS + tokens) e para o Framer.
 1. **Token-first.** Nunca use hex/raio/sombra solto — consuma os tokens. O token
    semântico **nunca sugere valor** (`--btn-bg`, não `--roxo-500`); o de componente
    referencia o semântico, nunca o primitivo direto.
-2. **Paridade dark/light + WCAG AA.** Toda cor de texto precisa passar contraste
-   (≥ 4.5:1 texto normal, ≥ 3:1 texto grande) nos **dois** temas. Cor nunca comunica
+2. **Paridade dark/light + WCAG AA em dois níveis.** (1) **Texto**: ≥ 4.5:1 (normal)
+   e ≥ 3:1 (texto grande). (2) **Componente/botão vs fundo**: ≥ 3:1 (critério 1.4.11,
+   contraste não-textual) — CTAs e demais controles precisam de contraste de UI mínimo
+   contra o fundo. Ambos os níveis valem nos **dois** temas. Cor nunca comunica
    sozinha — sempre acompanhada de ícone ou texto.
 3. **A11y by design.** Foco visível em tudo que é focável, navegação por teclado e
    semântica HTML correta entram desde o início, não como auditoria depois.
