@@ -38,7 +38,7 @@
     --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-6:24px; --space-8:32px; --space-12:48px;
     --z-base:0; --z-raised:10; --z-sticky:40; --z-overlay:100; --z-toast:1000;
     --motion-fast:.15s; --motion:.2s; --motion-slow:.4s; --ease:cubic-bezier(.2,.8,.2,1);
-    --focus:0 0 0 3px rgba(205,162,155,.55);
+    --focus-ring:#CDA29B; --focus:0 0 0 2px var(--bg),0 0 0 4px var(--focus-ring);
     /* ===== Foundations: opacidade · borda · blur · breakpoints · sizing · proporção ===== */
     --opacity-disabled:.45; --opacity-muted:.66; --opacity-hover:.08; --opacity-overlay:.58;
     --bw-hair:1px; --bw-1:1px; --bw-2:2px;
@@ -65,7 +65,7 @@
 
   /* ===== TEMA LIGHT · ativado por [data-theme="light"] no <html> ===== */
   [data-theme="light"]{
-    --bg:#FBF6F4; --bg2:#F6ECE8; --card:#FDF8F6; --card2:#F4E5DF;
+    --bg:#FBF6F4; --focus-ring:#3E1968; --bg2:#F6ECE8; --card:#FDF8F6; --card2:#F4E5DF;
     --line:rgba(62,25,104,.16);
     --roxo:#2A1149; --roxo2:#3E1968; --roxo-bright:#644389;
     --lilas:#3E1968; --lilas-soft:#5B3A86;
@@ -95,7 +95,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
 
   /* Acessibilidade: foco visível + movimento reduzido */
   .b:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--lilas);outline-offset:2px;box-shadow:var(--focus)}
-  @media (forced-colors: active){.b:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid Highlight;outline-offset:2px}}
+  @media (forced-colors: active){.b:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid Highlight!important;outline-offset:2px}}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
     *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
@@ -1928,7 +1928,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   <span class="c">/* sistema · raio, espaçamento, z-index, movimento, foco */</span>
   <span class="k">--radius-sm</span>:8px; <span class="k">--radius-md</span>:14px; <span class="k">--radius-lg</span>:18px; <span class="k">--radius-pill</span>:30px;
   <span class="k">--space-2</span>:8px; <span class="k">--space-4</span>:16px; <span class="k">--space-6</span>:24px; <span class="k">--space-8</span>:32px;
-  <span class="k">--motion</span>:.2s; <span class="k">--ease</span>:cubic-bezier(.2,.8,.2,1); <span class="k">--focus</span>:0 0 0 3px rgba(205,162,155,.55);
+  <span class="k">--motion</span>:.2s; <span class="k">--ease</span>:cubic-bezier(.2,.8,.2,1); <span class="k">--focus-ring</span>:#CDA29B; <span class="k">--focus</span>:0 0 0 2px var(--bg),0 0 0 4px var(--focus-ring);
 
   <span class="c">/* fundações: opacidade · borda · desfoque · pontos de quebra · dimensionamento · proporção */</span>
   <span class="k">--opacity-disabled</span>:.45; <span class="k">--opacity-muted</span>:.66; <span class="k">--opacity-hover</span>:.08; <span class="k">--opacity-overlay</span>:.58;

@@ -63,7 +63,7 @@
   --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-6:24px; --space-8:32px; --space-12:48px;
   --z-base:0; --z-raised:10; --z-sticky:40; --z-overlay:100; --z-toast:1000;
   --motion-fast:.15s; --motion:.2s; --motion-slow:.4s; --ease:cubic-bezier(.2,.8,.2,1);
-  --focus:0 0 0 3px rgba(205,162,155,.55);
+  --focus-ring:#CDA29B; --focus:0 0 0 2px var(--bg),0 0 0 4px var(--focus-ring);
   /* Foundations: opacidade · borda · blur · breakpoints · sizing · proporção */
   --opacity-disabled:.45; --opacity-muted:.66; --opacity-hover:.08; --opacity-overlay:.58;
   --bw-hair:1px; --bw-1:1px; --bw-2:2px;
@@ -105,7 +105,7 @@
 }
 }
 [data-theme="light"]{
-  --bg:#FBF6F4; --bg2:#F6ECE8; --card:#FDF8F6; --card2:#F4E5DF;
+  --bg:#FBF6F4; --focus-ring:#3E1968; --bg2:#F6ECE8; --card:#FDF8F6; --card2:#F4E5DF;
   --line:rgba(62,25,104,.16);
   --roxo:#2A1149; --roxo2:#3E1968; --roxo-bright:#644389;
   --lilas:#3E1968; --lilas-soft:#5B3A86;
@@ -136,7 +136,7 @@ a{color:var(--lilas);text-decoration:none}
 a:focus-visible,button:focus-visible,.fs-btn:focus-visible,[tabindex]:focus-visible{
   outline:2px solid var(--lilas);outline-offset:2px;box-shadow:var(--focus);border-radius:6px}
 @media (forced-colors: active){
-  a:focus-visible,button:focus-visible,.fs-btn:focus-visible{outline:2px solid Highlight;outline-offset:2px}
+  a:focus-visible,button:focus-visible,.fs-btn:focus-visible{outline:2px solid Highlight!important;outline-offset:2px}
 }
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
