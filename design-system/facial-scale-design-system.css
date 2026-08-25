@@ -177,7 +177,7 @@ a:focus-visible,button:focus-visible,.fs-btn:focus-visible,[tabindex]:focus-visi
 .fs-btn.fs-outline:hover{border-color:var(--lilas);color:var(--lilas)}
 .fs-btn.fs-ghost{background:transparent;color:var(--lilas);padding:10px 14px;border-radius:var(--radius-sm)}
 .fs-btn.fs-ghost:hover{color:var(--lilas-soft);text-decoration:underline;text-underline-offset:3px}
-.fs-btn.fs-gold{background:var(--gold);color:#140D1B}
+.fs-btn.fs-gold{background:var(--gold);color:#140D1B;border:1px solid var(--gold-ink)}
 .fs-btn.fs-gold:hover{background:var(--gold-deep)}
 .fs-btn.fs-gold-o{background:transparent;color:var(--gold-ink);border:1px solid var(--gold-line)}
 .fs-btn.fs-gold-o:hover{border-color:var(--gold-ink)}
