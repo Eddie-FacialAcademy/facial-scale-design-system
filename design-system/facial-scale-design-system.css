@@ -84,7 +84,7 @@
 /* Valores do tema light, reutilizados pelos dois seletores abaixo */
 @media (prefers-color-scheme: light){
   :root:not([data-theme="dark"]){
-    --bg:#FBF6F4; --bg2:#F6ECE8; --card:#FDF8F6; --card2:#F4E5DF;
+    --bg:#FBF6F4; --focus-ring:#3E1968; --bg2:#F6ECE8; --card:#FDF8F6; --card2:#F4E5DF;
     --line:rgba(62,25,104,.16);
     --roxo:#2A1149; --roxo2:#3E1968; --roxo-bright:#644389;
     --lilas:#3E1968; --lilas-soft:#5B3A86;
