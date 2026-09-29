@@ -1,5 +1,5 @@
 /* ============================================================================
-   FACIAL SCALE · DESIGN SYSTEM — v1.0
+   FACIAL SCALE · DESIGN SYSTEM — v1.2.4
    Desenvolvido por Edegar Junior.
    Identidade própria da Facial Scale (parte do ecossistema Facial Academy).
    ----------------------------------------------------------------------------
@@ -93,7 +93,7 @@
     --rose:#E8D5CE; --rose-ink:#8A6258; --rose-line:rgba(138,98,88,.50);
     --peach:#DDB9AE;
     --logo:#3E1968;
-    --success:#147A45; --warning:#8A5A00; --danger:#BE2C45; --info:#5B3A86;
+    --success:#12733F; --warning:#8A5A00; --danger:#BE2C45; --info:#5B3A86;
     --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10);
     --danger-bg:rgba(199,47,73,.10); --row-sel:rgba(62,25,104,.10); --info-bg:rgba(91,58,134,.10);
     --sh:rgba(62,25,104,.18); --sh-strong:rgba(62,25,104,.26);
@@ -114,7 +114,7 @@
   --rose:#E8D5CE; --rose-ink:#8A6258; --rose-line:rgba(138,98,88,.50);
   --peach:#DDB9AE;
   --logo:#3E1968;
-  --success:#147A45; --warning:#8A5A00; --danger:#BE2C45; --info:#5B3A86;
+  --success:#12733F; --warning:#8A5A00; --danger:#BE2C45; --info:#5B3A86;
   --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10);
   --danger-bg:rgba(199,47,73,.10); --row-sel:rgba(62,25,104,.10); --info-bg:rgba(91,58,134,.10);
   --sh:rgba(62,25,104,.18); --sh-strong:rgba(62,25,104,.26);

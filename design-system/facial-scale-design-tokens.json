@@ -1,7 +1,7 @@
 {
   "$meta": {
     "name": "Facial Scale Design System",
-    "version": "1.0.0",
+    "version": "1.2.4",
     "author": "Edegar Junior",
     "source": "Identidade visual própria da Facial Scale (ecossistema Facial Academy)",
     "language": "pt-BR",
@@ -23,7 +23,7 @@
       "line": "rgba(205,162,155,.16)",
       "roxo": "#2A1149", "roxo2": "#3E1968", "roxoBright": "#644389",
       "lilas": "#D6A99F", "lilasSoft": "#E8D5CE",
-      "cta": "#E1C9AC", "ctaGrad": "linear-gradient(120deg,#ECDDC6,#DABF9D)", "ctaInk": "#2A1149",
+      "cta": "#E1C9AC", "ctaGrad": "linear-gradient(120deg,#ECDDC6,#DABF9D)", "ctaSolidH": "#D3B58E", "ctaInk": "#2A1149",
       "txt": "#FBF6F4", "mut": "#C8B6AF", "legalMut": "#A28C84",
       "gold": "#CDA29B", "goldDeep": "#B98C84", "goldInk": "#CDA29B", "goldLine": "rgba(205,162,155,.42)",
       "rose": "#E8D5CE", "roseInk": "#E8D5CE", "roseLine": "rgba(232,213,206,.42)",
@@ -37,12 +37,12 @@
       "line": "rgba(62,25,104,.16)",
       "roxo": "#2A1149", "roxo2": "#3E1968", "roxoBright": "#644389",
       "lilas": "#3E1968", "lilasSoft": "#5B3A86",
-      "cta": "#3E1968", "ctaGrad": "linear-gradient(120deg,#3E1968,#2A1149)", "ctaInk": "#fff",
+      "cta": "#3E1968", "ctaGrad": "linear-gradient(120deg,#3E1968,#2A1149)", "ctaSolidH": "#644389", "ctaInk": "#fff",
       "txt": "#2B2730", "mut": "#6F5C55", "legalMut": "#6F5C55",
       "gold": "#CDA29B", "goldDeep": "#B98C84", "goldInk": "#8E5A50", "goldLine": "rgba(142,90,80,.55)",
       "rose": "#E8D5CE", "roseInk": "#8A6258", "roseLine": "rgba(138,98,88,.50)",
       "peach": "#DDB9AE", "logo": "#3E1968",
-      "success": "#147A45", "warning": "#8A5A00", "danger": "#BE2C45", "info": "#5B3A86",
+      "success": "#12733F", "warning": "#8A5A00", "danger": "#BE2C45", "info": "#5B3A86",
       "successBg": "rgba(31,138,91,.10)", "warningBg": "rgba(138,90,0,.10)", "dangerBg": "rgba(199,47,73,.10)", "infoBg": "rgba(91,58,134,.10)", "rowSel": "rgba(62,25,104,.10)",
       "shadow": "rgba(62,25,104,.18)", "shadowStrong": "rgba(62,25,104,.26)"
     }

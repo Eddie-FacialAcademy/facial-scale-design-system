@@ -1,6 +1,6 @@
-# Implementação — Facial Scale Design System
+# Implementação: Facial Scale Design System
 
-> **Versão atual: 1.0.0** (alinhada aos arquivos canônicos `facial-scale-design-tokens.json` / `.css`; histórico em `CHANGELOG.md`).
+> **Versão atual: 1.2.4** (alinhada aos arquivos canônicos `facial-scale-design-tokens.json` / `.css`; histórico em `CHANGELOG.md`).
 
 Documentação técnica de **como cada item é implementado**, para subir em qualquer infra (HTML/CSS puro, qualquer stack via tokens, ou Framer). Tudo aqui reflete o que está no showcase publicado (`index.html`) e no pacote `design-system/`. Em caso de divergência, **o showcase + `facial-scale-design-tokens.json` são a fonte da verdade**; o `facial-scale-design-system.css` (drop-in) espelha esses tokens.
 
@@ -60,17 +60,17 @@ O toggle (`#themeToggle`, `.theme-toggle`, com `aria-pressed`) alterna `data-the
 
 > **Numa infra sua:** para evitar flash de tema, replique o IIFE de init no `<head>` (inline, antes do CSS). Sem JS, o site ainda segue `prefers-color-scheme`.
 
-### 2.2 Cores institucionais (identidade própria da Facial Scale) — base imutável
+### 2.2 Cores institucionais (identidade própria da Facial Scale): base imutável
 
 7 cores da identidade própria da Facial Scale (ecossistema Facial Academy). Nada deve sair daqui. A marca não usa branco nem preto puro: usa branco quente e grafite.
 
 | Cor | Hex | Papel |
 |---|---|---|
-| Roxo profundo | `#3E1968` | **Estrutura.** Base dos fundos escuros e **CTA do tema claro** (texto branco); também cor do logo, semântico --info e paleta institucional. |
+| Roxo profundo | `#3E1968` | **Estrutura.** Base dos fundos escuros e **CTA do tema claro** (texto branco); também cor do logo e paleta institucional. |
 | Roxo claro | `#644389` | Variação institucional do roxo (paleta/gradiente-assinatura) e hover sólido do CTA roxo. |
 | Roxo claro · variação | `#8A5EBA` | Variação clara do roxo na paleta institucional. |
 | Rosé | `#CDA29B` | Accent **quente** (links no escuro, foco, selos). |
-| Nude | `#E8D5CE` | Accent **quente** (tints, hover) — junto com o rosé; **não** é superfície predominante (as superfícies são roxo escuro). |
+| Nude | `#E8D5CE` | Accent **quente** (tints, hover), junto com o rosé; **não** é superfície predominante (as superfícies são roxo escuro). |
 | Pêssego | `#DDB9AE` | Família quente. Espectro do gradiente principal e detalhes. |
 | Grafite | `#2B2730` | Texto no tema claro. |
 | Branco quente | `#FBF6F4` | Fundo claro (off-white). |
@@ -96,8 +96,8 @@ Os `--brand-*` **não** mudam entre temas; os tokens de tema abaixo é que deriv
 | `--roxo` | `#2A1149` | `#2A1149` | roxo profundo · estrutura (fundos/gradiente) |
 | `--roxo2` | `#3E1968` | `#3E1968` | roxo · fill/seleção, base do CTA |
 | `--roxo-bright` | `#644389` | `#644389` | roxo · hover sólido |
-| `--lilas` | `#D6A99F` | `#3E1968` | **accent interativo** — rosé no escuro, **link roxo** no claro |
-| `--lilas-soft` | `#E8D5CE` | `#5B3A86` | accent hover — nude no escuro, roxo suave no claro |
+| `--lilas` | `#D6A99F` | `#3E1968` | **accent interativo**: rosé no escuro, **link roxo** no claro |
+| `--lilas-soft` | `#E8D5CE` | `#5B3A86` | accent hover: nude no escuro, roxo suave no claro |
 | `--cta` / `--cta-ink` | `#E1C9AC` / `#2A1149` | `#3E1968` / `#fff` | **CTA**: champanhe (texto roxo) no escuro, roxo (texto branco) no claro |
 | `--cta-grad` | `linear-gradient(120deg,#ECDDC6,#DABF9D)` | `linear-gradient(120deg,#3E1968,#2A1149)` | gradiente do CTA preenchido |
 | `--cta-solid` | `#E1C9AC` | `#3E1968` | CTA sólido (`--cta-solid-h` = hover) |
@@ -109,7 +109,7 @@ Os `--brand-*` **não** mudam entre temas; os tokens de tema abaixo é que deriv
 
 | Token | Dark | Light |
 |---|---|---|
-| `--success` / `--success-bg` | `#45C08A` / `rgba(69,192,138,.14)` | `#147A45` / `rgba(31,138,91,.10)` |
+| `--success` / `--success-bg` | `#45C08A` / `rgba(69,192,138,.14)` | `#12733F` / `rgba(31,138,91,.10)` |
 | `--warning` / `--warning-bg` | `#E8B53D` / `rgba(232,181,61,.14)` | `#8A5A00` / `rgba(138,90,0,.10)` |
 | `--danger` / `--danger-bg` | `#FF7D93` / `rgba(255,125,147,.14)` | `#BE2C45` / `rgba(199,47,73,.10)` |
 | `--info` / `--info-bg` | `#A98AD0` / `rgba(169,138,208,.14)` | `#5B3A86` / `rgba(91,58,134,.10)` |
@@ -130,7 +130,7 @@ Os `--brand-*` **não** mudam entre temas; os tokens de tema abaixo é que deriv
 /* Breakpoints */     --bp-phone:390px  --bp-tablet:810px  --bp-desktop:1200px
 /* Tamanhos */        --size-icon-sm:16  --size-icon:20  --size-icon-lg:24  --control-h:44  --touch-min:44 (px)
 /* Aspect ratio */    --ar-square:1/1  --ar-photo:4/3  --ar-wide:16/9
-/* Code (escuro nos 2 temas) */ --code-bg:#060408  --code-txt:#E8D5CE  --code-comment:#A28C84  --code-key:#CDA29B
+/* Code (escuro nos 2 temas) */ --code-bg:#060408  --code-txt:#D6C7C0  --code-comment:#A28C84  --code-key:#CDA29B
 /* Componentes */     --row-h:46px  --row-h-compact:38px  --side-w:248px  --cal-cell:38px  --row-sel:(accent .16 dark / .10 light)
 ```
 
@@ -195,10 +195,10 @@ Todas as transições/animações viram instantâneas. (Ao auditar contraste por
 ### 3.5 Ícones
 - Biblioteca **Phosphor**, peso **Thin** (traço 1 na grade 24). Definidos uma vez em `<svg><defs><symbol id="ph-…">` e referenciados por `<use href="#ph-…"/>`.
 - Cor por `currentColor` (herda `color`/accent, segue o tema). Ícone decorativo leva `aria-hidden="true"`; ícone que informa estado vem **com texto**.
-- IDs de logo (a marca é **só logotipo**, sem ícone/símbolo): `logo-hor`, `logo-vert`, `logo-tipo` — versões do logotipo oficial. Cada um tem a versão **cor** (gradiente, SVG real) para fundo claro e para fundo escuro; a versão **1-cor** (branco quente / roxo profundo / grafite) é usada só em "Cores oficiais". `fill=currentColor`, cor via `--logo`. IDs de UI: `i-arrow/i-check/i-sun/i-moon/i-copy/i-download` + ~60 `ph-*`.
+- IDs de logo (a marca é **só logotipo**, sem ícone/símbolo): a versão **cor** (gradiente, SVG real) é `logo-real-l` (fundo claro) e `logo-real-d` (fundo escuro); `logo-hor`, `logo-vert` e `logo-tipo` são a versão **1-cor** (branco quente / roxo profundo / grafite), usada só em "Cores oficiais", com `fill=currentColor` e cor via `--logo`. IDs de UI: `i-arrow/i-check/i-sun/i-moon/i-copy/i-download` + ~60 `ph-*`.
 
 ### 3.6 Gradientes
-Montados só com cores da identidade própria. Tipos: linear principal (rosé→nude→pêssego), **gradiente-assinatura** (uso pontual, com roxo: roxo→lilás→rosé→pêssego), **malha** (multi radial-gradient sobre `--bg`) e **spot** (radial topo). Pêssego = `--peach #DDB9AE`. Sem cônico, sem blob, sem halo. Ver seção 03 do showcase.
+Montados só com cores da identidade própria. Tipos: linear principal (roxo → roxo profundo), **espectro** (roxo → rosé → nude → pêssego), **malha** (multi radial-gradient sobre `--bg`) e **spot** (radial topo). Pêssego = `--peach #DDB9AE`. Sem cônico, sem blob, sem halo. Ver seção 03 do showcase.
 
 ---
 
@@ -351,25 +351,25 @@ Accordion usa `<details>/<summary>` nativo (estado open gratuito + acessível); 
 
 ### 5.7 Avançados (camada de produto)
 
-**Data table (`.dtbl`)** — em wrapper `.dtbl-x{overflow-x:auto}`:
+**Data table (`.dtbl`)**: em wrapper `.dtbl-x{overflow-x:auto}`:
 - Cabeçalho sticky: `thead th{position:sticky;top:0;background:var(--card2)}`, uppercase 10.5px.
 - Ordenação: botão `.ths` no `th`; estado em `aria-sort="ascending|descending"`; a seta SVG gira (`[aria-sort="ascending"] .ths svg{transform:rotate(180deg);opacity:1}`).
 - Linha: `tbody tr{transition:background .2s}`; `tr:hover{background:var(--card2)}`; `tr.is-sel{background:var(--row-sel)}` (tint do accent).
 - Seleção: `.check` na `.col-ck`; densidade `.dtbl.compact` (linha 46→38px via `--row-h`/`--row-h-compact`).
 - Status: `.st` + `.st i` (ponto) com `.ok`(success)/`.warn`(warning)/`.off`(mut).
 
-**Command palette (`.cmdk`)** — overlay com `.cmdk-scrim`:
+**Command palette (`.cmdk`)**: overlay com `.cmdk-scrim`:
 - `.cmdk{width:min(520px,100%);box-shadow:var(--elev-modal)}`, input `.cmdk-in`, lista `.cmdk-list{max-height:262px;overflow-y:auto}`, grupos `.cmdk-grp` (uppercase).
 - Item `.cmdk-item`; `:hover{background:var(--card2)}`; ativo `.is-active{background:var(--row-sel)}` + ícone em `--lilas` + `.kbd` (↵).
 - `.kbd`: tecla com `border-bottom-width:2px` (relevo), `tabular-nums`.
 
-**App shell (`.appshell`)** — `grid-template-columns:var(--side-w) 1fr` (248px + conteúdo), `min-width:660px`:
+**App shell (`.appshell`)**: `grid-template-columns:var(--side-w) 1fr` (248px + conteúdo), `min-width:660px`:
 - Sidebar `.appside` (brand + `.navgroup-lbl` + itens + `.side-foot`); topbar `.appbar`.
 - Item `.navitem`; `:hover{background:var(--card2);color:var(--txt)}`; ativo `.is-active{background:var(--row-sel)}` + **faixa accent à esquerda** via `::before{width:3px;background:var(--lilas)}` + ícone em `--lilas`.
 
-**Date picker (`.cal`)** — calendário `width:296px`, grid `.cal-grid{grid-template-columns:repeat(7,1fr)}`:
+**Date picker (`.cal`)**: calendário `width:296px`, grid `.cal-grid{grid-template-columns:repeat(7,1fr)}`:
 - Dia `.cal-day{height:var(--cal-cell)}`; `:hover{background:var(--card2)}`.
-- Estados: `.is-out{opacity:.5}` · `.is-today{box-shadow:inset 0 0 0 1.5px var(--lilas)}` · `.is-range{background:var(--row-sel)}` · `.is-sel{background:var(--roxo2);color:#fff}` (roxo `#3E1968` profundo p/ o branco passar contraste).
+- Estados: `.is-out{opacity:.5}` · `.is-today{box-shadow:inset 0 0 0 1.5px var(--lilas)}` · `.is-range{background:var(--row-sel)}` · `.is-sel{background:var(--cta-solid);color:var(--cta-ink)}` (champanhe com texto roxo no escuro, roxo com texto branco no claro; o roxo base ficava abaixo de 3:1 contra o fundo do calendário no escuro, ver CHANGELOG 1.2.4).
 
 ---
 
@@ -403,9 +403,9 @@ Tudo vanilla, sem dependências. Scripts no fim do `<body>`.
 
 - **Contraste WCAG 2.1 AA em 2 níveis**, medido nos 2 temas:
   - **(1) Texto** (1.4.3): texto normal ≥ 4.5:1; texto grande ≥ 3:1.
-  - **(2) Não-texto / componentes** (1.4.11 Non-text Contrast): borda/preenchimento de componente vs fundo adjacente ≥ 3:1 — inclui o **CTA** (champanhe `#E1C9AC` no escuro, roxo `#3E1968` no claro), bordas de input, foco e ícones de estado.
+  - **(2) Não-texto / componentes** (1.4.11 Non-text Contrast): borda/preenchimento de componente vs fundo adjacente ≥ 3:1. Inclui o **CTA** (champanhe `#E1C9AC` no escuro, roxo `#3E1968` no claro), bordas de input, foco e ícones de estado.
   - Verificado por sweep automatizado (compondo fundos semi-transparentes sobre o pai e desativando transições antes de medir). 0 falhas em dark e light.
-- **Foco visível:** outline 2px `--lilas` + `box-shadow:var(--focus)` (anel 3px); guard para `forced-colors` (`Highlight`).
+- **Foco visível:** outline 2px `--lilas` + `box-shadow:var(--focus)` (anel de 2px em `--focus-ring` sobre 2px da cor do fundo); guard para `forced-colors` (`Highlight`).
 - **Cor nunca sozinha:** todo estado/semântica vem com ícone e/ou texto.
 - **Alvos de toque:** `--touch-min:44px` em botões, `.check`, `.toggle`; controles densos (pager 40, dia do calendário 38) compensam com espaçamento.
 - **Movimento:** respeita `prefers-reduced-motion`.
@@ -437,17 +437,17 @@ Tudo vanilla, sem dependências. Scripts no fim do `<body>`.
 ```
 Dark é o padrão; `data-theme="light"` no `<html>` força claro; sem isso segue `prefers-color-scheme`. Para toggle sem flash, replique o IIFE de init no `<head>`.
 
-**B) Tokens (qualquer stack)** — importe `facial-scale-design-tokens.json` e gere CSS vars / JS / Tailwind theme. Componentes consomem token, nunca hex.
+**B) Tokens (qualquer stack)**: importe `facial-scale-design-tokens.json` e gere CSS vars / JS / Tailwind theme. Componentes consomem token, nunca hex.
 
-**C) Framer** — crie **Color Styles** (cada um com valor Claro e Escuro), **Text Styles** por breakpoint (L/M/S = 1200/810/390), use `Button.tsx` como Code Component e ícones Phosphor Thin. O site publicado segue `prefers-color-scheme`.
+**C) Framer**: crie **Color Styles** (cada um com valor Claro e Escuro), **Text Styles** por breakpoint (L/M/S = 1200/810/390), use `Button.tsx` como Code Component e ícones Phosphor Thin. O site publicado segue `prefers-color-scheme`.
 
 ---
 
 ## 11. Deploy / infra
 
 - **Repos:** `Eddie-FacialAcademy/facial-scale-design-system` (irmãos: `facialclass-design-system`, `corporal-class-design-system`).
-- **Hospedagem:** GitHub Pages, servindo o `index.html` self-contained da raiz. **Sem build/CI** — `git push` na `main` publica.
-- **Cache:** Pages (Fastly) tem `Cache-Control:max-age=600`; após push, propaga em ~1–3 min. No navegador, use hard refresh (Ctrl+Shift+R) ou query `?v=`.
+- **Hospedagem:** GitHub Pages, servindo o `index.html` self-contained da raiz. **Sem build/CI**: `git push` na `main` publica.
+- **Cache:** Pages (Fastly) tem `Cache-Control:max-age=600`; após push, propaga em 1 a 3 min. No navegador, use hard refresh (Ctrl+Shift+R) ou query `?v=`.
 - **Git:** credencial via Git Credential Manager (sem token em arquivo); `.git` fora do OneDrive (`AppData\Local\gitdirs\`); EOL travado em LF (`.gitattributes`); `desktop.ini` ignorado.
 - **URL ao vivo:** https://eddie-facialacademy.github.io/facial-scale-design-system/
 
@@ -479,7 +479,7 @@ Os três DS do ecossistema Facial Academy compartilham arquitetura, JS, componen
 | Sombra (matiz) | `rgba(62,25,104,…)` | `rgba(100,67,137,…)` | `rgba(214,81,92,…)` |
 | Domínio da copy | comercial/CEO (ROI, Tarefas Críticas) | HOF/técnica (aulas) | corpo/técnica |
 
-**Identidade Facial Scale:** **roxo como estrutura** (fundos escuros e CTA do tema claro) com **rosé/nude como accents quentes** e **champanhe como CTA no tema escuro**; branco quente e grafite para texto. Dark = quase-preto **roxo** (a marca não usa branco nem preto puro). Superfícies: dark `--bg #0C0A12`, `--card #1E1828`, `--txt #FBF6F4`; light `--bg #FBF6F4`, `--card #FDF8F6`, `--txt #2B2730`. Semânticas success/warning/danger são **iguais** nas três marcas.
+**Identidade Facial Scale:** **roxo como estrutura** (fundos escuros e CTA do tema claro) com **rosé/nude como accents quentes** e **champanhe como CTA no tema escuro**; branco quente e grafite para texto. Dark = quase-preto **roxo** (a marca não usa branco nem preto puro). Superfícies: dark `--bg #0C0A12`, `--card #1E1828`, `--txt #FBF6F4`; light `--bg #FBF6F4`, `--card #FDF8F6`, `--txt #2B2730`. Semânticas success/warning/danger partem da mesma base nas três marcas; a Facial Scale aprofundou o success do tema claro para `#12733F` (CHANGELOG 1.2.4).
 
 > Trocar de marca = trocar a linha de import e o prefixo de classe. O resto do código é idêntico.
 

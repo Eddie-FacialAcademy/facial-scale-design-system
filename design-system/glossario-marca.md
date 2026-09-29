@@ -19,7 +19,7 @@ arquitetura comercial · ROI · payback · caixa novo · previsibilidade · **Ta
 **Facial Scale** (o programa / Design System) · **Facial Academy** (a marca-mãe). Por extenso, sem abreviar.
 
 ## Exemplos de demo (domínio certo)
-Painel ROI (em que semana o investimento se pagou), Tarefas Críticas (reativação de inativos, reabertura de orçamentos, upsell, indicação, retorno trimestral), caixa novo por semana, encontros das quartas (9h–11h); status Concluída / Em curso / Planejada.
+Painel ROI (em que semana o investimento se pagou), Tarefas Críticas (reativação de inativos, reabertura de orçamentos, upsell, indicação, retorno trimestral), caixa novo por semana, encontros das quartas (9h às 11h); status Concluída / Em curso / Planejada.
 
 ---
 *Regras gerais de voz, estrangeirismos e acessibilidade: ver `voz-e-tom.md`.*
