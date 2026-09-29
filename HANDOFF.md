@@ -1,6 +1,6 @@
 # Handoff: Facial Scale Design System v1.2.4 (estado em 2026-09-29)
 
-Desenvolvido por **Edegar Junior**. Ponto de retomada; atualizar conforme avançar. Versão atual: **1.2.4** (igual aos arquivos canônicos `index.html` / `.css` / `.json`).
+Desenvolvido por **Edegar Junior**. Ponto de retomada; atualizar conforme avançar. Versão atual: **1.3.0** (igual aos arquivos canônicos `index.html` / `.css` / `.json`).
 
 ## ✅ Concluído
 

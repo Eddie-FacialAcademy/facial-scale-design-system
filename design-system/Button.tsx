@@ -56,12 +56,12 @@ export default function Button(props) {
             color: "var(--txt,#FBF6F4)",
             border: "1px solid var(--line,rgba(205,162,155,.16))",
         },
-        ghost: { background: "transparent", color: "var(--lilas,#D6A99F)" },
-        gold: { background: "var(--gold,#CDA29B)", color: "var(--cta-ink,#2A1149)" },
-        "gold-o": {
+        ghost: { background: "transparent", color: "var(--accent,#D6A99F)" },
+        highlight: { background: "var(--highlight,#CDA29B)", color: "var(--cta-ink,#2A1149)" },
+        "highlight-o": {
             background: "transparent",
-            color: "var(--gold-ink,#CDA29B)",
-            border: "1px solid var(--gold-line,rgba(205,162,155,.42))",
+            color: "var(--highlight-ink,#CDA29B)",
+            border: "1px solid var(--highlight-line,rgba(205,162,155,.42))",
         },
     }
 
@@ -91,7 +91,7 @@ export default function Button(props) {
             ? "2px solid var(--focus,rgba(205,162,155,.55))"
             : "2px solid transparent",
         outlineOffset: 2,
-        ...variants[variant],
+        ...(variants[variant] ?? variants[({ gold: "highlight", "gold-o": "highlight-o" } as Record<string, string>)[variant] ?? "fill"]), // "gold"/"gold-o": nomes legados
         ...style,
     }
 
@@ -151,7 +151,7 @@ addPropertyControls(Button, {
     variant: {
         type: ControlType.Enum,
         title: "Variante",
-        options: ["fill", "solid", "outline", "ghost", "gold", "gold-o"],
+        options: ["fill", "solid", "outline", "ghost", "highlight", "highlight-o"],
         optionTitles: ["Preenchido", "Sólido", "Contorno", "Inline", "Dourado", "Dourado contorno"],
         defaultValue: "fill",
     },

@@ -1,5 +1,5 @@
 /* ============================================================================
-   FACIAL SCALE · DESIGN SYSTEM — v1.2.4
+   FACIAL SCALE · DESIGN SYSTEM — v1.3.0
    Desenvolvido por Edegar Junior.
    Identidade própria da Facial Scale (parte do ecossistema Facial Academy).
    ----------------------------------------------------------------------------
@@ -22,9 +22,9 @@
   /* Cores institucionais — a fonte da verdade. Nada deve sair desta paleta. */
   --brand-roxo:#3E1968;        /* roxo profundo · pontual (logo, info, destaques) */
   --brand-lilas:#A98AD0;       /* lilás · pontual (info sobre escuro) */
-  --brand-amarelo:#CDA29B;     /* rosé · accent quente principal */
-  --brand-vermelho:#E8D5CE;    /* nude · apoio e superfícies suaves */
-  --brand-amarelado:#DDB9AE;   /* pêssego · calor em gradientes */
+  --brand-rose:#CDA29B;     /* rosé · accent quente principal */
+  --brand-nude:#E8D5CE;    /* nude · apoio e superfícies suaves */
+  --brand-pessego:#DDB9AE;   /* pêssego · calor em gradientes */
   --brand-branco:#FFFFFF;
   --brand-preto:#000000;
 
@@ -33,14 +33,14 @@
   --line:rgba(205,162,155,.16);
 
   /* Roxo (estrutura) e accent rosé. O CTA usa --cta (champanhe no escuro, roxo no claro). */
-  --roxo:#2A1149; --roxo2:#3E1968; --roxo-bright:#644389;
-  --lilas:#D6A99F; --lilas-soft:#E8D5CE;
+  --primary-deep:#2A1149; --primary:#3E1968; --primary-bright:#644389;
+  --accent:#D6A99F; --accent-soft:#E8D5CE;
   --txt:#FBF6F4; --mut:#C8B6AF; --legal-mut:#A28C84;
 
   /* Accent quente (-ink = variante de texto; -line = variante de borda) */
-  --gold:var(--brand-amarelo); --gold-deep:#B98C84; --gold-ink:#CDA29B; --gold-line:rgba(205,162,155,.42);
-  --rose:var(--brand-vermelho); --rose-ink:#E8D5CE; --rose-line:rgba(232,213,206,.42);
-  --peach:var(--brand-amarelado);
+  --highlight:var(--brand-rose); --highlight-deep:#B98C84; --highlight-ink:#CDA29B; --highlight-line:rgba(205,162,155,.42);
+  --support:var(--brand-nude); --support-ink:#E8D5CE; --support-line:rgba(232,213,206,.42);
+  --glow:var(--brand-pessego);
 
   /* Marca (cor do logo SVG 1-cor via currentColor) */
   --logo:#FFFFFF;
@@ -79,6 +79,13 @@
   color-scheme:dark;
 
   --cta-grad:linear-gradient(120deg,#ECDDC6,#DABF9D); --cta-solid:#E1C9AC; --cta-solid-h:#D3B58E; --cta-ink:#2A1149;
+
+  /* Nomes legados (descontinuados na 1.3.0, saem na 2.0): apontam para os nomes novos.
+     Use os nomes novos em código novo. */
+  --roxo-bright:var(--primary-bright); --lilas-soft:var(--accent-soft); --gold-deep:var(--highlight-deep); --gold-line:var(--highlight-line);
+  --rose-line:var(--support-line); --gold-ink:var(--highlight-ink); --rose-ink:var(--support-ink); --roxo2:var(--primary);
+  --lilas:var(--accent); --peach:var(--glow); --roxo:var(--primary-deep); --gold:var(--highlight);
+  --rose:var(--support); --brand-amarelo:var(--brand-rose); --brand-vermelho:var(--brand-nude); --brand-amarelado:var(--brand-pessego);
 }
 
 /* Valores do tema light, reutilizados pelos dois seletores abaixo */
@@ -86,12 +93,12 @@
   :root:not([data-theme="dark"]){
     --bg:#FBF6F4; --focus-ring:#3E1968; --bg2:#F6ECE8; --card:#FDF8F6; --card2:#F4E5DF;
     --line:rgba(62,25,104,.16);
-    --roxo:#2A1149; --roxo2:#3E1968; --roxo-bright:#644389;
-    --lilas:#3E1968; --lilas-soft:#5B3A86;
+    --primary-deep:#2A1149; --primary:#3E1968; --primary-bright:#644389;
+    --accent:#3E1968; --accent-soft:#5B3A86;
     --txt:#2B2730; --mut:#6F5C55; --legal-mut:#6F5C55;
-    --gold:#CDA29B; --gold-deep:#B98C84; --gold-ink:#8E5A50; --gold-line:rgba(142,90,80,.55);
-    --rose:#E8D5CE; --rose-ink:#8A6258; --rose-line:rgba(138,98,88,.50);
-    --peach:#DDB9AE;
+    --highlight:#CDA29B; --highlight-deep:#B98C84; --highlight-ink:#8E5A50; --highlight-line:rgba(142,90,80,.55);
+    --support:#E8D5CE; --support-ink:#8A6258; --support-line:rgba(138,98,88,.50);
+    --glow:#DDB9AE;
     --logo:#3E1968;
     --success:#12733F; --warning:#8A5A00; --danger:#BE2C45; --info:#5B3A86;
     --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10);
@@ -107,12 +114,12 @@
 [data-theme="light"]{
   --bg:#FBF6F4; --focus-ring:#3E1968; --bg2:#F6ECE8; --card:#FDF8F6; --card2:#F4E5DF;
   --line:rgba(62,25,104,.16);
-  --roxo:#2A1149; --roxo2:#3E1968; --roxo-bright:#644389;
-  --lilas:#3E1968; --lilas-soft:#5B3A86;
+  --primary-deep:#2A1149; --primary:#3E1968; --primary-bright:#644389;
+  --accent:#3E1968; --accent-soft:#5B3A86;
   --txt:#2B2730; --mut:#6F5C55; --legal-mut:#6F5C55;
-  --gold:#CDA29B; --gold-deep:#B98C84; --gold-ink:#8E5A50; --gold-line:rgba(142,90,80,.55);
-  --rose:#E8D5CE; --rose-ink:#8A6258; --rose-line:rgba(138,98,88,.50);
-  --peach:#DDB9AE;
+  --highlight:#CDA29B; --highlight-deep:#B98C84; --highlight-ink:#8E5A50; --highlight-line:rgba(142,90,80,.55);
+  --support:#E8D5CE; --support-ink:#8A6258; --support-line:rgba(138,98,88,.50);
+  --glow:#DDB9AE;
   --logo:#3E1968;
   --success:#12733F; --warning:#8A5A00; --danger:#BE2C45; --info:#5B3A86;
   --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10);
@@ -130,11 +137,11 @@
 html{scroll-behavior:smooth}
 body{font-family:var(--font-sans);background:var(--bg);color:var(--txt);line-height:1.5;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
 img,svg,video{display:block;max-width:100%}
-a{color:var(--lilas);text-decoration:none}
+a{color:var(--accent);text-decoration:none}
 
 /* Acessibilidade: foco visível (WCAG 2.4.7 / 1.4.11) + movimento reduzido */
 a:focus-visible,button:focus-visible,.fs-btn:focus-visible,[tabindex]:focus-visible{
-  outline:2px solid var(--lilas);outline-offset:2px;box-shadow:var(--focus);border-radius:6px}
+  outline:2px solid var(--accent);outline-offset:2px;box-shadow:var(--focus);border-radius:6px}
 @media (forced-colors: active){
   a:focus-visible,button:focus-visible,.fs-btn:focus-visible{outline:2px solid Highlight!important;outline-offset:2px}
 }
@@ -145,7 +152,7 @@ a:focus-visible,button:focus-visible,.fs-btn:focus-visible,[tabindex]:focus-visi
 
 /* ===== TIPOGRAFIA · escala fluida (Desktop ⇄ Phone) ======================= */
 /* Breakpoints Framer de referência: Desktop ≥1200 · Tablet ≤810 · Phone ≤390 */
-.fs-eyebrow{font-size:clamp(11px,1.4vw,12px);letter-spacing:.18em;text-transform:uppercase;color:var(--lilas);font-weight:600}
+.fs-eyebrow{font-size:clamp(11px,1.4vw,12px);letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600}
 .fs-h1{font-size:clamp(34px,6vw,60px);font-weight:500;letter-spacing:-.025em;line-height:1.03}
 .fs-h2{font-size:clamp(26px,4vw,38px);font-weight:500;letter-spacing:-.02em;line-height:1.12}
 .fs-h3{font-size:clamp(20px,2.4vw,24px);font-weight:500;line-height:1.2}
@@ -157,7 +164,7 @@ a:focus-visible,button:focus-visible,.fs-btn:focus-visible,[tabindex]:focus-visi
 .fs-small{font-size:14px;font-weight:300;color:var(--mut);line-height:1.6}
 .fs-legal{font-size:clamp(11px,1.2vw,12px);font-weight:300;color:var(--legal-mut);line-height:1.5}
 .fs-num{font-size:clamp(32px,4.6vw,44px);font-weight:700;line-height:1;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
-.fs-hl{color:var(--lilas)}
+.fs-hl{color:var(--accent)}
 
 /* ===== BOTÕES =============================================================
    Estrutura: class="fs-btn <variante> <tamanho>"
@@ -174,13 +181,13 @@ a:focus-visible,button:focus-visible,.fs-btn:focus-visible,[tabindex]:focus-visi
 .fs-btn.fs-solid{background:var(--cta-solid);color:var(--cta-ink)}
 .fs-btn.fs-solid:hover{background:var(--cta-solid-h)}
 .fs-btn.fs-outline{background:transparent;color:var(--txt);border:1px solid var(--line)}
-.fs-btn.fs-outline:hover{border-color:var(--lilas);color:var(--lilas)}
-.fs-btn.fs-ghost{background:transparent;color:var(--lilas);padding:10px 14px;border-radius:var(--radius-sm)}
-.fs-btn.fs-ghost:hover{color:var(--lilas-soft);text-decoration:underline;text-underline-offset:3px}
-.fs-btn.fs-gold{background:var(--gold);color:#140D1B;border:1px solid var(--gold-ink)}
-.fs-btn.fs-gold:hover{background:var(--gold-deep)}
-.fs-btn.fs-gold-o{background:transparent;color:var(--gold-ink);border:1px solid var(--gold-line)}
-.fs-btn.fs-gold-o:hover{border-color:var(--gold-ink)}
+.fs-btn.fs-outline:hover{border-color:var(--accent);color:var(--accent)}
+.fs-btn.fs-ghost{background:transparent;color:var(--accent);padding:10px 14px;border-radius:var(--radius-sm)}
+.fs-btn.fs-ghost:hover{color:var(--accent-soft);text-decoration:underline;text-underline-offset:3px}
+.fs-btn.fs-highlight,.fs-btn.fs-gold{background:var(--highlight);color:#140D1B;border:1px solid var(--highlight-ink)}
+.fs-btn.fs-highlight:hover,.fs-btn.fs-gold:hover{background:var(--highlight-deep)}
+.fs-btn.fs-highlight-o,.fs-btn.fs-gold-o{background:transparent;color:var(--highlight-ink);border:1px solid var(--highlight-line)}
+.fs-btn.fs-highlight-o:hover,.fs-btn.fs-gold-o:hover{border-color:var(--highlight-ink)}
 .fs-btn:active{transform:translateY(0) scale(.985);transition-duration:var(--motion-fast)}
 .fs-btn:disabled,.fs-btn[aria-disabled="true"]{opacity:.42;pointer-events:none;box-shadow:none;transform:none}
 .fs-ico{width:18px;height:18px;flex:0 0 auto}
@@ -191,7 +198,7 @@ a:focus-visible,button:focus-visible,.fs-btn:focus-visible,[tabindex]:focus-visi
 .fs-chip{display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);
   color:var(--txt);font-size:13.5px;padding:9px 16px;border-radius:var(--radius-pill)}
 .fs-badge{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;
-  color:var(--gold-ink);border:1px solid var(--gold-line);padding:4px 10px;border-radius:20px}
+  color:var(--highlight-ink);border:1px solid var(--highlight-line);padding:4px 10px;border-radius:20px}
 .fs-status{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;
   padding:9px 15px;border-radius:var(--radius-pill);border:1px solid currentColor}
 .fs-status .fs-ico{width:16px;height:16px}

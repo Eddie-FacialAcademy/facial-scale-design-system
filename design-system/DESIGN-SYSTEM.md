@@ -1,6 +1,6 @@
 # Facial Scale · Design System
 
-**Versão 1.2.4** · Desenvolvido por **Edegar Junior** · Identidade própria da **Facial Scale** (ecossistema Facial Academy).
+**Versão 1.3.0** · Desenvolvido por **Edegar Junior** · Identidade própria da **Facial Scale** (ecossistema Facial Academy).
 
 Sistema de design portátil para web (HTML/CSS, React, Framer). Dark por padrão, light por troca de tema. Fundos escuros e estrutura são **roxo** (quase-preto roxo, `bg #0C0A12` / `bg2 #161120`), **nunca marrom nem quase-preto rosado**. Esta pasta é a **fonte da verdade** para aplicar a marca em qualquer projeto.
 
@@ -62,7 +62,7 @@ Importe `facial-scale-design-tokens.json` e gere variáveis no seu formato (CSS 
 ```html
 <script>(function(){try{var t=localStorage.getItem('fs-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
 ```
-No light, **gold (rosé) e rose (nude) como texto** usam variantes `-ink` (`--gold-ink`, `--rose-ink`); como preenchimento mantêm a cor institucional. (Os tokens chamam-se `--gold`/`--gold-ink`, mas o valor é **rosé** `#CDA29B`; não há dourado real na paleta.) Rosé e nude são **accents quentes** (não a cor primária): os **links** seguem `--lilas`: **roxo** `#3E1968` no claro, **rosé** `#D6A99F` no escuro. A marca usa por padrão a **versão COR** do logo (gradiente, SVG real): uma para fundo claro e outra para fundo escuro. A versão **1-cor** (`--logo`: branco quente no dark / roxo profundo no light, ou grafite) é de **uso restrito**, documentada apenas em "Cores oficiais". A marca é **apenas logotipo**: não há ícone/símbolo de marca (Phosphor é só para UI).
+No light, **gold (rosé) e rose (nude) como texto** usam variantes `-ink` (`--highlight-ink`, `--support-ink`); como preenchimento mantêm a cor institucional. (Os tokens chamam-se `--highlight`/`--highlight-ink`, mas o valor é **rosé** `#CDA29B`; não há dourado real na paleta.) Rosé e nude são **accents quentes** (não a cor primária): os **links** seguem `--accent`: **roxo** `#3E1968` no claro, **rosé** `#D6A99F` no escuro. A marca usa por padrão a **versão COR** do logo (gradiente, SVG real): uma para fundo claro e outra para fundo escuro. A versão **1-cor** (`--logo`: branco quente no dark / roxo profundo no light, ou grafite) é de **uso restrito**, documentada apenas em "Cores oficiais". A marca é **apenas logotipo**: não há ícone/símbolo de marca (Phosphor é só para UI).
 
 ### Tokens de sistema
 - **Raio:** sm 8 · md 14 · lg 18 · pill 30
@@ -179,7 +179,7 @@ Somente cores do brand. O **roxo é a estrutura** e o **CTA do tema claro**; o *
 
 ### Botão: `fs-btn`
 `class="fs-btn <variante> <tamanho>"`
-- **Variantes:** `fs-fill` (CTA primário via `--cta`/`--cta-grad`/`--cta-ink`: **roxo** `#3E1968` no claro com texto branco; **champanhe** `#E1C9AC` no escuro com texto roxo `#2A1149`) · `fs-solid` · `fs-outline` · `fs-ghost` (texto) · `fs-gold` · `fs-gold-o` (accent **rosé** secundário, não o primário)
+- **Variantes:** `fs-fill` (CTA primário via `--cta`/`--cta-grad`/`--cta-ink`: **roxo** `#3E1968` no claro com texto branco; **champanhe** `#E1C9AC` no escuro com texto roxo `#2A1149`) · `fs-solid` · `fs-outline` · `fs-ghost` (texto) · `fs-highlight` · `fs-highlight-o` (accent **rosé** secundário, não o primário)
 - **Tamanhos:** `fs-sm` · (md = padrão) · `fs-lg`
 - **Estados:** hover · `:active` · `:focus-visible` · `:disabled` / `[aria-disabled]`
 - **Regras:** altura mínima 44px, raio pill, ícone Phosphor opcional (`<svg class="fs-ico">`). Use `<button>` (não `<a>` sem href) para ser focável.
@@ -189,13 +189,13 @@ Somente cores do brand. O **roxo é a estrutura** e o **CTA do tema claro**; o *
 Sempre **ícone + texto**, nunca só cor. Verde/âmbar/vermelho saem da paleta de propósito (são funcionais).
 
 ### Outros
-`fs-chip` · `fs-badge` (accent **rosé** secundário; token `--gold` = `#CDA29B`, não dourado real; o botão primário usa `--cta`, roxo no claro / champanhe no escuro) · `fs-card` · `fs-logo`: versão **1-cor** do logo em SVG com `fill="currentColor"` (uso restrito); o padrão da marca é a **versão COR** (gradiente, SVG real). A marca é **só logotipo**, sem ícone/símbolo.
+`fs-chip` · `fs-badge` (accent **rosé** secundário; token `--highlight` = `#CDA29B`, não dourado real; o botão primário usa `--cta`, roxo no claro / champanhe no escuro) · `fs-card` · `fs-logo`: versão **1-cor** do logo em SVG com `fill="currentColor"` (uso restrito); o padrão da marca é a **versão COR** (gradiente, SVG real). A marca é **só logotipo**, sem ícone/símbolo.
 
 ---
 
 ## Acessibilidade (obrigatório)
 - **Contraste WCAG AA (2 níveis):** (1) **texto ≥4.5:1** (texto grande ≥3:1); (2) **componente/botão vs fundo ≥3:1** (WCAG 1.4.11 Non-text Contrast). No light, gold (rosé)/rose (nude) como texto = `-ink`.
-- **Foco visível:** `outline:2px solid var(--lilas)` + `box-shadow var(--focus)`; guard `@media (forced-colors: active)`.
+- **Foco visível:** `outline:2px solid var(--accent)` + `box-shadow var(--focus)`; guard `@media (forced-colors: active)`.
 - **`prefers-reduced-motion`:** reduzir transições/animações.
 - **Toque ≥44px.** **Cor nunca sozinha** (estados com ícone+texto).
 

@@ -1,6 +1,6 @@
 # Tema claro/escuro: Facial Scale Design System
 
-**Versão:** 1.2.4
+**Versão:** 1.3.0
 
 Desenvolvido por **Edegar Junior**.
 

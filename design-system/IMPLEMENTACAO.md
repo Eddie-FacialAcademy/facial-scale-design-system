@@ -1,11 +1,11 @@
 # Implementação: Facial Scale Design System
 
-> **Versão atual: 1.2.4** (alinhada aos arquivos canônicos `facial-scale-design-tokens.json` / `.css`; histórico em `CHANGELOG.md`).
+> **Versão atual: 1.3.0** (alinhada aos arquivos canônicos `facial-scale-design-tokens.json` / `.css`; histórico em `CHANGELOG.md`).
 
 Documentação técnica de **como cada item é implementado**, para subir em qualquer infra (HTML/CSS puro, qualquer stack via tokens, ou Framer). Tudo aqui reflete o que está no showcase publicado (`index.html`) e no pacote `design-system/`. Em caso de divergência, **o showcase + `facial-scale-design-tokens.json` são a fonte da verdade**; o `facial-scale-design-system.css` (drop-in) espelha esses tokens.
 
 - **Sem build step.** O showcase é um único `index.html` self-contained (CSS em `<style>`, SVGs em `<defs><symbol>`, JS em `<script>`, fonte Silka embutida em base64). Abre direto no navegador, sem bundler, sem dependências de rede.
-- **Marcas irmãs:** Facial Class e Corporal Class. Mesma arquitetura; mudam cor, prefixo de classe, chave de tema, nomes de arquivo e domínio da copy. Ver a seção **13**.
+- **Molde:** Facial Class. Mesma arquitetura; mudam paleta, logo, prefixo de classe (`fs-`), chave de tema e copy. Ver a seção 13.
 
 ---
 
@@ -77,7 +77,7 @@ O toggle (`#themeToggle`, `.theme-toggle`, com `aria-pressed`) alterna `data-the
 
 Os `--brand-*` **não** mudam entre temas; os tokens de tema abaixo é que derivam deles.
 
-> No CSS, os primitivos são expostos como `--brand-*` (nomes herdados dos DS irmãos por paridade de arquitetura). A lógica de papéis é: **roxo = estrutura** (fundos escuros) **+ CTA do tema claro**; **champanhe `#E1C9AC` = CTA do tema escuro**; **rosé/nude = accents quentes**. O accent interativo `--lilas` carrega rosé no escuro (`#D6A99F`) e roxo no claro (`#3E1968`, link roxo); `--lilas-soft` carrega nude no escuro (`#E8D5CE`) e roxo suave no claro (`#5B3A86`). O CTA preenchido/sólido usa os tokens `--cta-grad`/`--cta-solid`/`--cta-ink`.
+> No CSS, os primitivos são expostos como `--brand-*` (nomes herdados dos DS irmãos por paridade de arquitetura). A lógica de papéis é: **roxo = estrutura** (fundos escuros) **+ CTA do tema claro**; **champanhe `#E1C9AC` = CTA do tema escuro**; **rosé/nude = accents quentes**. O accent interativo `--accent` carrega rosé no escuro (`#D6A99F`) e roxo no claro (`#3E1968`, link roxo); `--accent-soft` carrega nude no escuro (`#E8D5CE`) e roxo suave no claro (`#5B3A86`). O CTA preenchido/sólido usa os tokens `--cta-grad`/`--cta-solid`/`--cta-ink`.
 >
 > O champanhe `#E1C9AC` (derivado) entra na paleta institucional só como **CTA no tema escuro**.
 
@@ -93,17 +93,17 @@ Os `--brand-*` **não** mudam entre temas; os tokens de tema abaixo é que deriv
 | `--txt` | `#FBF6F4` | `#2B2730` | texto principal |
 | `--mut` | `#C8B6AF` | `#6F5C55` | texto secundário |
 | `--legal-mut` | `#A28C84` | `#6F5C55` | texto legal/rodapé |
-| `--roxo` | `#2A1149` | `#2A1149` | roxo profundo · estrutura (fundos/gradiente) |
-| `--roxo2` | `#3E1968` | `#3E1968` | roxo · fill/seleção, base do CTA |
-| `--roxo-bright` | `#644389` | `#644389` | roxo · hover sólido |
-| `--lilas` | `#D6A99F` | `#3E1968` | **accent interativo**: rosé no escuro, **link roxo** no claro |
-| `--lilas-soft` | `#E8D5CE` | `#5B3A86` | accent hover: nude no escuro, roxo suave no claro |
+| `--primary-deep` | `#2A1149` | `#2A1149` | roxo profundo · estrutura (fundos/gradiente) |
+| `--primary` | `#3E1968` | `#3E1968` | roxo · fill/seleção, base do CTA |
+| `--primary-bright` | `#644389` | `#644389` | roxo · hover sólido |
+| `--accent` | `#D6A99F` | `#3E1968` | **accent interativo**: rosé no escuro, **link roxo** no claro |
+| `--accent-soft` | `#E8D5CE` | `#5B3A86` | accent hover: nude no escuro, roxo suave no claro |
 | `--cta` / `--cta-ink` | `#E1C9AC` / `#2A1149` | `#3E1968` / `#fff` | **CTA**: champanhe (texto roxo) no escuro, roxo (texto branco) no claro |
 | `--cta-grad` | `linear-gradient(120deg,#ECDDC6,#DABF9D)` | `linear-gradient(120deg,#3E1968,#2A1149)` | gradiente do CTA preenchido |
 | `--cta-solid` | `#E1C9AC` | `#3E1968` | CTA sólido (`--cta-solid-h` = hover) |
 | `--logo` | `#FFFFFF` | `#3E1968` | cor do logotipo (lockup SVG) |
-| `--gold` / `--gold-ink` | `#CDA29B` / `#CDA29B` | `#CDA29B` / `#8E5A50` | rosé fill / tinta rosé (sobre fundo claro) |
-| `--rose` / `--rose-ink` | `#E8D5CE` / `#E8D5CE` | `#E8D5CE` / `#8A6258` | nude fill / tinta nude (sobre fundo claro) |
+| `--highlight` / `--highlight-ink` | `#CDA29B` / `#CDA29B` | `#CDA29B` / `#8E5A50` | rosé fill / tinta rosé (sobre fundo claro) |
+| `--support` / `--support-ink` | `#E8D5CE` / `#E8D5CE` | `#E8D5CE` / `#8A6258` | nude fill / tinta nude (sobre fundo claro) |
 
 **Semânticas** (texto sempre com ícone/label junto, nunca cor sozinha):
 
@@ -166,14 +166,14 @@ html{scroll-behavior:smooth}
 body{font-family:var(--font-sans);background:var(--bg);color:var(--txt);line-height:1.5;
      -webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
 img,svg,video{display:block;max-width:100%}
-a{color:var(--lilas);text-decoration:none}
+a{color:var(--accent);text-decoration:none}
 ```
 `font-variant-numeric:tabular-nums` é **global** (dígitos alinham em tabelas/listas).
 
 ### 3.2 Foco visível (a11y, obrigatório)
 ```css
 a:focus-visible,button:focus-visible,.b:focus-visible,[tabindex]:focus-visible{
-  outline:2px solid var(--lilas);outline-offset:2px;box-shadow:var(--focus);border-radius:6px}
+  outline:2px solid var(--accent);outline-offset:2px;box-shadow:var(--focus);border-radius:6px}
 @media (forced-colors:active){
   a:focus-visible,button:focus-visible{outline:2px solid Highlight;outline-offset:2px}}
 ```
@@ -198,7 +198,7 @@ Todas as transições/animações viram instantâneas. (Ao auditar contraste por
 - IDs de logo (a marca é **só logotipo**, sem ícone/símbolo): a versão **cor** (gradiente, SVG real) é `logo-real-l` (fundo claro) e `logo-real-d` (fundo escuro); `logo-hor`, `logo-vert` e `logo-tipo` são a versão **1-cor** (branco quente / roxo profundo / grafite), usada só em "Cores oficiais", com `fill=currentColor` e cor via `--logo`. IDs de UI: `i-arrow/i-check/i-sun/i-moon/i-copy/i-download` + ~60 `ph-*`.
 
 ### 3.6 Gradientes
-Montados só com cores da identidade própria. Tipos: linear principal (roxo → roxo profundo), **espectro** (roxo → rosé → nude → pêssego), **malha** (multi radial-gradient sobre `--bg`) e **spot** (radial topo). Pêssego = `--peach #DDB9AE`. Sem cônico, sem blob, sem halo. Ver seção 03 do showcase.
+Montados só com cores da identidade própria. Tipos: linear principal (roxo → roxo profundo), **espectro** (roxo → rosé → nude → pêssego), **malha** (multi radial-gradient sobre `--bg`) e **spot** (radial topo). Pêssego = `--glow #DDB9AE`. Sem cônico, sem blob, sem halo. Ver seção 03 do showcase.
 
 ---
 
@@ -232,24 +232,24 @@ Classe base **`.b`** (drop-in: `.fs-btn`). Composição: `.b` + tamanho (`.sm`/`
 
 /* Contorno */
 .b.outline{background:transparent;color:var(--txt);border:1px solid var(--line)}
-.b.outline:hover{border-color:var(--lilas);color:var(--lilas)}
+.b.outline:hover{border-color:var(--accent);color:var(--accent)}
 
 /* Inline / ghost */
-.b.ghost{background:transparent;color:var(--lilas);padding:10px 14px;border-radius:8px}
-.b.ghost:hover{color:var(--lilas-soft);text-decoration:underline;text-underline-offset:3px}
+.b.ghost{background:transparent;color:var(--accent);padding:10px 14px;border-radius:8px}
+.b.ghost:hover{color:var(--accent-soft);text-decoration:underline;text-underline-offset:3px}
 
 /* Dourado e dourado contorno */
-.b.gold{background:var(--gold);color:#140D1B;border:1px solid var(--gold-ink)}
-.b.gold:hover{background:var(--gold-deep)}
-.b.gold-o{background:transparent;color:var(--gold-ink);border:1px solid var(--gold-line)}
-.b.gold-o:hover{border-color:var(--gold-ink)}
+.b.highlight{background:var(--highlight);color:#140D1B;border:1px solid var(--highlight-ink)}
+.b.highlight:hover{background:var(--highlight-deep)}
+.b.highlight-o{background:transparent;color:var(--highlight-ink);border:1px solid var(--highlight-line)}
+.b.highlight-o:hover{border-color:var(--highlight-ink)}
 ```
 
 ### 4.3 Estados globais (microinteração)
 ```css
 .b:active{transform:translateY(0) scale(.985);transition-duration:var(--motion-fast)}  /* press: encolhe 1.5% em .15s */
 .b:disabled,.b.is-disabled{opacity:.42;pointer-events:none;box-shadow:none;transform:none}
-.b:focus-visible{outline:2px solid var(--lilas);outline-offset:2px;box-shadow:var(--focus)}
+.b:focus-visible{outline:2px solid var(--accent);outline-offset:2px;box-shadow:var(--focus)}
 @media (max-width:560px){.b{white-space:normal;text-align:center}}
 ```
 **Resumo da microinteração do botão:** `transition:.2s var(--ease)` (transform + box-shadow + cor); `fill` levanta 2px no hover e o glow (`--sh`→`--sh-strong`) intensifica; `:active` faz `scale(.985)` em `.15s`. O **glow vive só no botão** (cartões não usam glow). Alvo de toque mínimo 44px (`min-height`).
@@ -277,7 +277,7 @@ Para cada um: classes, estados e microinterações. (A11y consolidada na seção
 ```css
 .fs-chip{background:var(--card);border:1px solid var(--line);color:var(--txt);
          padding:9px 16px;border-radius:30px}                 /* neutro, cor via token */
-.fs-badge{color:var(--gold-ink);border:1px solid var(--gold-line);font-size:10.5px;
+.fs-badge{color:var(--highlight-ink);border:1px solid var(--highlight-line);font-size:10.5px;
           padding:4px 10px;border-radius:20px}                /* destaque dourado */
 .fs-status{padding:9px 15px;border-radius:30px;border:1px solid currentColor}
 .fs-status.is-success{color:var(--success);background:var(--success-bg)}
@@ -292,13 +292,13 @@ Para cada um: classes, estados e microinterações. (A11y consolidada na seção
 .input,.textarea,.select{font-size:15px;color:var(--txt);background:var(--card);
   border:1px solid var(--line);border-radius:14px;padding:0 14px;min-height:44px;width:100%;outline:none;
   transition:border-color var(--motion) var(--ease),box-shadow var(--motion) var(--ease)}
-.input:focus{border-color:var(--lilas);box-shadow:var(--focus)}
+.input:focus{border-color:var(--accent);box-shadow:var(--focus)}
 .input.is-error{border-color:var(--danger)}  .input.is-success{border-color:var(--success)}
 .input:disabled{opacity:var(--opacity-disabled);cursor:not-allowed}
 .input[readonly]{background:var(--card2);color:var(--mut)}
 ```
-- **Checkbox/radio** (`.check`): input `appearance:none`, 20px, `border-radius:6px` (radio 50%); `:checked` pinta `var(--lilas)` + checkmark via `::after` (rotate 45°); radio usa `::after` circular. `min-height:44px` no label.
-- **Toggle** (`.toggle`): trilho 42×24 `border-radius:999px`, thumb 20px `::after` que desliza `left 2px→20px` em `.2s`; `:checked` pinta o trilho de `--lilas`.
+- **Checkbox/radio** (`.check`): input `appearance:none`, 20px, `border-radius:6px` (radio 50%); `:checked` pinta `var(--accent)` + checkmark via `::after` (rotate 45°); radio usa `::after` circular. `min-height:44px` no label.
+- **Toggle** (`.toggle`): trilho 42×24 `border-radius:999px`, thumb 20px `::after` que desliza `left 2px→20px` em `.2s`; `:checked` pinta o trilho de `--accent`.
 - Validação: mensagem diz **o que houve + como resolver**; estado por classe (`is-error`/`is-success`) + texto, nunca só cor.
 
 ### 5.3 Feedback
@@ -306,7 +306,7 @@ Para cada um: classes, estados e microinterações. (A11y consolidada na seção
 .alert{display:flex;gap:11px;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:var(--card)}
 .alert.ok{background:var(--success-bg);border-color:var(--success)}   /* idem info/warn/err */
 .toast{border-radius:30px;background:var(--card2);box-shadow:var(--elev-overlay)}
-.spinner{width:28px;height:28px;border:3px solid var(--line);border-top-color:var(--lilas);
+.spinner{width:28px;height:28px;border:3px solid var(--line);border-top-color:var(--accent);
          border-radius:50%;animation:spin .7s linear infinite}
 .skel{background:linear-gradient(90deg,var(--card) 25%,var(--card2) 37%,var(--card) 63%);
       background-size:400% 100%;animation:shimmer 1.4s ease infinite}
@@ -329,15 +329,15 @@ Scrim usa `backdrop-filter:blur(6px)` sobre base **roxa** `rgba(12,10,18,.55)` (
 ```css
 .tabs{display:flex;gap:4px;border-bottom:1px solid var(--line)}
 .tab{color:var(--mut);border-bottom:2px solid transparent;padding:10px 14px;margin-bottom:-1px}
-.tab.active{color:var(--lilas);border-bottom-color:var(--lilas)}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
 .acc summary svg{transition:transform .2s var(--ease)}                  /* caret */
 .acc details[open] summary svg{transform:rotate(180deg)}               /* gira 180° ao abrir */
 .av{width:40px;height:40px;border-radius:50%;background:var(--card2);border:1px solid var(--line)}
 .av .dot{position:absolute;...;background:var(--success);border:2px solid var(--bg)}  /* presença */
 .av-stack .av{margin-left:-12px;border:2px solid var(--bg)}            /* empilhado */
-.crumb a:hover{color:var(--lilas)}  .crumb .cur{color:var(--txt);font-weight:500}
+.crumb a:hover{color:var(--accent)}  .crumb .cur{color:var(--txt);font-weight:500}
 .pg{min-width:40px;height:40px;border-radius:8px;border:1px solid var(--line)}
-.pg.active{border-color:var(--lilas);color:var(--lilas);font-weight:600}  .pg:disabled{opacity:.45}
+.pg.active{border-color:var(--accent);color:var(--accent);font-weight:600}  .pg:disabled{opacity:.45}
 ```
 Accordion usa `<details>/<summary>` nativo (estado open gratuito + acessível); `::-webkit-details-marker{display:none}` esconde o triângulo padrão.
 
@@ -346,7 +346,7 @@ Accordion usa `<details>/<summary>` nativo (estado open gratuito + acessível); 
 .cardv{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;overflow:hidden}
 .cardv.inter{cursor:pointer;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
 .cardv.inter:hover{transform:translateY(-3px);box-shadow:var(--elev-overlay)}   /* sobe 3px + sombra (sem glow) */
-.cardv-media .media{height:92px;background:linear-gradient(120deg,var(--gold),var(--rose))}
+.cardv-media .media{height:92px;background:linear-gradient(120deg,var(--highlight),var(--support))}
 ```
 
 ### 5.7 Avançados (camada de produto)
@@ -360,16 +360,16 @@ Accordion usa `<details>/<summary>` nativo (estado open gratuito + acessível); 
 
 **Command palette (`.cmdk`)**: overlay com `.cmdk-scrim`:
 - `.cmdk{width:min(520px,100%);box-shadow:var(--elev-modal)}`, input `.cmdk-in`, lista `.cmdk-list{max-height:262px;overflow-y:auto}`, grupos `.cmdk-grp` (uppercase).
-- Item `.cmdk-item`; `:hover{background:var(--card2)}`; ativo `.is-active{background:var(--row-sel)}` + ícone em `--lilas` + `.kbd` (↵).
+- Item `.cmdk-item`; `:hover{background:var(--card2)}`; ativo `.is-active{background:var(--row-sel)}` + ícone em `--accent` + `.kbd` (↵).
 - `.kbd`: tecla com `border-bottom-width:2px` (relevo), `tabular-nums`.
 
 **App shell (`.appshell`)**: `grid-template-columns:var(--side-w) 1fr` (248px + conteúdo), `min-width:660px`:
 - Sidebar `.appside` (brand + `.navgroup-lbl` + itens + `.side-foot`); topbar `.appbar`.
-- Item `.navitem`; `:hover{background:var(--card2);color:var(--txt)}`; ativo `.is-active{background:var(--row-sel)}` + **faixa accent à esquerda** via `::before{width:3px;background:var(--lilas)}` + ícone em `--lilas`.
+- Item `.navitem`; `:hover{background:var(--card2);color:var(--txt)}`; ativo `.is-active{background:var(--row-sel)}` + **faixa accent à esquerda** via `::before{width:3px;background:var(--accent)}` + ícone em `--accent`.
 
 **Date picker (`.cal`)**: calendário `width:296px`, grid `.cal-grid{grid-template-columns:repeat(7,1fr)}`:
 - Dia `.cal-day{height:var(--cal-cell)}`; `:hover{background:var(--card2)}`.
-- Estados: `.is-out{opacity:.5}` · `.is-today{box-shadow:inset 0 0 0 1.5px var(--lilas)}` · `.is-range{background:var(--row-sel)}` · `.is-sel{background:var(--cta-solid);color:var(--cta-ink)}` (champanhe com texto roxo no escuro, roxo com texto branco no claro; o roxo base ficava abaixo de 3:1 contra o fundo do calendário no escuro, ver CHANGELOG 1.2.4).
+- Estados: `.is-out{opacity:.5}` · `.is-today{box-shadow:inset 0 0 0 1.5px var(--accent)}` · `.is-range{background:var(--row-sel)}` · `.is-sel{background:var(--cta-solid);color:var(--cta-ink)}` (champanhe com texto roxo no escuro, roxo com texto branco no claro; o roxo base ficava abaixo de 3:1 contra o fundo do calendário no escuro, ver CHANGELOG 1.2.4).
 
 ---
 
@@ -405,7 +405,7 @@ Tudo vanilla, sem dependências. Scripts no fim do `<body>`.
   - **(1) Texto** (1.4.3): texto normal ≥ 4.5:1; texto grande ≥ 3:1.
   - **(2) Não-texto / componentes** (1.4.11 Non-text Contrast): borda/preenchimento de componente vs fundo adjacente ≥ 3:1. Inclui o **CTA** (champanhe `#E1C9AC` no escuro, roxo `#3E1968` no claro), bordas de input, foco e ícones de estado.
   - Verificado por sweep automatizado (compondo fundos semi-transparentes sobre o pai e desativando transições antes de medir). 0 falhas em dark e light.
-- **Foco visível:** outline 2px `--lilas` + `box-shadow:var(--focus)` (anel de 2px em `--focus-ring` sobre 2px da cor do fundo); guard para `forced-colors` (`Highlight`).
+- **Foco visível:** outline 2px `--accent` + `box-shadow:var(--focus)` (anel de 2px em `--focus-ring` sobre 2px da cor do fundo); guard para `forced-colors` (`Highlight`).
 - **Cor nunca sozinha:** todo estado/semântica vem com ícone e/ou texto.
 - **Alvos de toque:** `--touch-min:44px` em botões, `.check`, `.toggle`; controles densos (pager 40, dia do calendário 38) compensam com espaçamento.
 - **Movimento:** respeita `prefers-reduced-motion`.
@@ -463,25 +463,27 @@ Dark é o padrão; `data-theme="light"` no `<html>` força claro; sem isso segue
 
 ---
 
-## 13. Diferenças por marca (Facial Scale × irmãs)
+## 13. Relação com o molde
 
-Os três DS do ecossistema Facial Academy compartilham arquitetura, JS, componentes, escalas e semânticas. Mudam cor, prefixo, chave de tema, nomes de arquivo e domínio da copy.
+**Molde:** Facial Class. Mesma arquitetura, JS, componentes, escalas e semânticas; o que é próprio da Facial Scale está abaixo.
 
-| Aspecto | Facial Scale | Facial Class | Corporal Class |
-|---|---|---|---|
-| Prefixo de classe | `fs-*` | `fc-*` | `cc-*` |
-| Chave de tema | `fs-theme` | `fc-theme` | `cc-theme` |
-| id do cmdk | `cmdk-list-fs` | `cmdk-list-fa` | `cmdk-list-co` |
-| CTA (dark/light) | champanhe `#E1C9AC` / roxo `#3E1968` | roxo `#644389` | bordô `#D6515C` |
-| Accent quente (dark/light) | rosé `#D6A99F` / roxo `#3E1968` (link) | lilás `#A289D7` / `#644389` | coral `#E88A92` / `#C2434E` |
-| Família predominante | rosé `#CDA29B`, nude `#E8D5CE`, pêssego `#DDB9AE` | dourado `#FFE4A4`, rosa `#FFB1BD` | dourado, rosa |
-| `--info` (dark/light, pontual) | roxo `#A98AD0` / `#5B3A86` | roxo `#A289D7` / `#5E4A8C` | teal `#74C0D8` / `#2A7286` |
-| Sombra (matiz) | `rgba(62,25,104,…)` | `rgba(100,67,137,…)` | `rgba(214,81,92,…)` |
-| Domínio da copy | comercial/CEO (ROI, Tarefas Críticas) | HOF/técnica (aulas) | corpo/técnica |
+Valores lidos do CSS e do showcase desta versão. Esta seção não repete valores de outras marcas: cada DS documenta só os próprios, para não desatualizar.
 
-**Identidade Facial Scale:** **roxo como estrutura** (fundos escuros e CTA do tema claro) com **rosé/nude como accents quentes** e **champanhe como CTA no tema escuro**; branco quente e grafite para texto. Dark = quase-preto **roxo** (a marca não usa branco nem preto puro). Superfícies: dark `--bg #0C0A12`, `--card #1E1828`, `--txt #FBF6F4`; light `--bg #FBF6F4`, `--card #FDF8F6`, `--txt #2B2730`. Semânticas success/warning/danger partem da mesma base nas três marcas; a Facial Scale aprofundou o success do tema claro para `#12733F` (CHANGELOG 1.2.4).
+| Aspecto | Facial Scale |
+|---|---|
+| Arquivos | `facial-scale-design-system.css` · `facial-scale-design-tokens.json` · `copy-deck.facial-scale.json` |
+| Prefixo de classe (CSS de colar no site) | `fs-*` |
+| Chave de tema | `localStorage['fs-theme']` |
+| id da paleta de comandos | `cmdk-list-fs` |
+| Token primário | `--primary` `#3E1968` |
+| Destaque interativo (links, foco de campo) | `--accent` `#D6A99F` escuro · `#3E1968` claro |
+| CTA (degradê) | `#ECDDC6 → #DABF9D` escuro · `#3E1968 → #2A1149` claro |
+| `--info` | `#A98AD0` escuro · `#5B3A86` claro |
+| Foco (`--focus-ring`) | `#CDA29B` escuro · `#3E1968` claro |
+| Sombra (matiz) | `rgba(62,25,104,…)` |
+| Logo na navegação | `24px` de altura |
 
-> Trocar de marca = trocar a linha de import e o prefixo de classe. O resto do código é idêntico.
+> Trocar de marca = trocar a linha de import (`facial-scale-design-system.css`) e o prefixo de classe (`fs-`). O resto do código é igual entre os DS do mesmo molde.
 
 ---
 
